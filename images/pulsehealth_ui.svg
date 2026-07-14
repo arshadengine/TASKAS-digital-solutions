@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#f8fafc; font-family:system-ui, -apple-system, sans-serif;">
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="500" fill="#ffffff" />
+  <line x1="200" y1="0" x2="200" y2="500" stroke="#f1f5f9" stroke-width="1" />
+  <text x="24" y="40" font-size="18" font-weight="700" fill="#0f172a">PulseHealth</text>
+  
+  <rect x="16" y="80" width="168" height="36" rx="8" fill="#f0f9ff" />
+  <text x="32" y="103" font-size="13" font-weight="600" fill="#0284c7">Patients</text>
+  
+  <text x="32" y="155" font-size="13" font-weight="500" fill="#64748b">Schedule</text>
+  <text x="32" y="205" font-size="13" font-weight="500" fill="#64748b">Prescriptions</text>
+  <text x="32" y="255" font-size="13" font-weight="500" fill="#64748b">Analytics</text>
+  <text x="32" y="305" font-size="13" font-weight="500" fill="#64748b">Messages</text>
+
+  <!-- Header -->
+  <rect x="200" y="0" width="600" height="64" fill="#ffffff" />
+  <line x1="200" y1="64" x2="800" y2="64" stroke="#f1f5f9" stroke-width="1" />
+  <text x="224" y="40" font-size="16" font-weight="600" fill="#0f172a">Clinician Dashboard</text>
+  <circle cx="750" cy="32" r="16" fill="#e2e8f0" />
+  
+  <!-- KPI Grid -->
+  <g transform="translate(224, 88)">
+    <rect x="0" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">APPOINTMENTS</text>
+    <text x="16" y="58" font-size="24" font-weight="700" fill="#0f172a">12</text>
+    <text x="16" y="74" font-size="10" font-weight="500" fill="#0284c7">Today's schedule</text>
+
+    <rect x="184" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="200" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">PATIENTS</text>
+    <text x="200" y="58" font-size="24" font-weight="700" fill="#0f172a">847</text>
+    <text x="200" y="74" font-size="10" font-weight="500" fill="#16a34a">+18 new this week</text>
+
+    <rect x="368" y="0" width="184" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="384" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">PENDING CHARTS</text>
+    <text x="384" y="58" font-size="24" font-weight="700" fill="#0f172a">5</text>
+    <text x="384" y="74" font-size="10" font-weight="500" fill="#e11d48">Needs attention</text>
+  </g>
+
+  <!-- Schedule Panel -->
+  <g transform="translate(224, 200)">
+    <rect x="0" y="0" width="552" height="268" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="13" font-weight="600" fill="#0f172a">Active Appointments</text>
+    
+    <!-- Table Header -->
+    <rect x="16" y="48" width="520" height="32" fill="#f8fafc" rx="6" />
+    <text x="28" y="68" font-size="11" font-weight="600" fill="#64748b">Patient Name</text>
+    <text x="180" y="68" font-size="11" font-weight="600" fill="#64748b">Time</text>
+    <text x="280" y="68" font-size="11" font-weight="600" fill="#64748b">Reason</text>
+    <text x="440" y="68" font-size="11" font-weight="600" fill="#64748b">Status</text>
+    
+    <!-- Rows -->
+    <g transform="translate(16, 90)">
+      <text x="12" y="18" font-size="12" font-weight="500" fill="#0f172a">Sarah Jenkins</text>
+      <text x="164" y="18" font-size="12" fill="#64748b">10:00 AM</text>
+      <text x="264" y="18" font-size="12" fill="#0f172a">Annual Checkup</text>
+      <rect x="424" y="4" width="70" height="20" rx="10" fill="#dcfce7" />
+      <text x="459" y="18" font-size="10" font-weight="600" fill="#15803d" text-anchor="middle">Checked In</text>
+    </g>
+    <line x1="16" y1="125" x2="536" y2="125" stroke="#f1f5f9" stroke-width="1" />
+    
+    <g transform="translate(16, 135)">
+      <text x="12" y="18" font-size="12" font-weight="500" fill="#0f172a">Michael Chang</text>
+      <text x="164" y="18" font-size="12" fill="#64748b">10:45 AM</text>
+      <text x="264" y="18" font-size="12" fill="#0f172a">Follow-up (Cardio)</text>
+      <rect x="424" y="4" width="70" height="20" rx="10" fill="#fef9c3" />
+      <text x="459" y="18" font-size="10" font-weight="600" fill="#854d0e" text-anchor="middle">In Progress</text>
+    </g>
+    <line x1="16" y1="170" x2="536" y2="170" stroke="#f1f5f9" stroke-width="1" />
+
+    <g transform="translate(16, 180)">
+      <text x="12" y="18" font-size="12" font-weight="500" fill="#0f172a">David Miller</text>
+      <text x="164" y="18" font-size="12" fill="#64748b">11:30 AM</text>
+      <text x="264" y="18" font-size="12" fill="#0f172a">Consultation</text>
+      <rect x="424" y="4" width="70" height="20" rx="10" fill="#e0f2fe" />
+      <text x="459" y="18" font-size="10" font-weight="600" fill="#0369a1" text-anchor="middle">Upcoming</text>
+    </g>
+  </g>
+</svg>

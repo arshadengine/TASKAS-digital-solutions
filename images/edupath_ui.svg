@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#f8fafc; font-family:system-ui, -apple-system, sans-serif;">
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="500" fill="#ffffff" />
+  <line x1="200" y1="0" x2="200" y2="500" stroke="#f1f5f9" stroke-width="1" />
+  <text x="24" y="40" font-size="18" font-weight="700" fill="#0f172a">EduPath</text>
+  
+  <rect x="16" y="80" width="168" height="36" rx="8" fill="#f0fdf4" />
+  <text x="32" y="103" font-size="13" font-weight="600" fill="#16a34a">My Courses</text>
+  
+  <text x="32" y="155" font-size="13" font-weight="500" fill="#64748b">Schedule</text>
+  <text x="32" y="205" font-size="13" font-weight="500" fill="#64748b">Assignments</text>
+  <text x="32" y="255" font-size="13" font-weight="500" fill="#64748b">Grades</text>
+  <text x="32" y="305" font-size="13" font-weight="500" fill="#64748b">Settings</text>
+
+  <!-- Header -->
+  <rect x="200" y="0" width="600" height="64" fill="#ffffff" />
+  <line x1="200" y1="64" x2="800" y2="64" stroke="#f1f5f9" stroke-width="1" />
+  <text x="224" y="40" font-size="16" font-weight="600" fill="#0f172a">Learning Workspace</text>
+  <circle cx="750" cy="32" r="16" fill="#e2e8f0" />
+  
+  <!-- KPI Grid -->
+  <g transform="translate(224, 88)">
+    <rect x="0" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">COURSE PROGRESS</text>
+    <text x="16" y="58" font-size="24" font-weight="700" fill="#0f172a">74%</text>
+    <text x="16" y="74" font-size="10" font-weight="500" fill="#16a34a">Ahead of schedule</text>
+
+    <rect x="184" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="200" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">STUDY HOURS</text>
+    <text x="200" y="58" font-size="24" font-weight="700" fill="#0f172a">14.5 hrs</text>
+    <text x="200" y="74" font-size="10" font-weight="500" fill="#16a34a">+2.1 hrs vs last week</text>
+
+    <rect x="368" y="0" width="184" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="384" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">NEXT ASSIGNMENT</text>
+    <text x="384" y="58" font-size="14" font-weight="700" fill="#ef4444">UI Design Project</text>
+    <text x="384" y="74" font-size="10" font-weight="500" fill="#ef4444">Due in 2 days</text>
+  </g>
+
+  <!-- Progress Chart Section -->
+  <g transform="translate(224, 200)">
+    <rect x="0" y="0" width="552" height="268" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="13" font-weight="600" fill="#0f172a">Course Overview &amp; Milestones</text>
+    
+    <!-- Course 1 -->
+    <g transform="translate(16, 50)">
+      <text x="12" y="18" font-size="12" font-weight="600" fill="#0f172a">Introduction to Web Development</text>
+      <rect x="12" y="28" width="400" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="12" y="28" width="360" height="8" rx="4" fill="#22c55e" />
+      <text x="424" y="36" font-size="12" font-weight="600" fill="#0f172a">90%</text>
+    </g>
+    
+    <!-- Course 2 -->
+    <g transform="translate(16, 110)">
+      <text x="12" y="18" font-size="12" font-weight="600" fill="#0f172a">UI/UX Interface Design Foundations</text>
+      <rect x="12" y="28" width="400" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="12" y="28" width="240" height="8" rx="4" fill="#3b82f6" />
+      <text x="424" y="36" font-size="12" font-weight="600" fill="#0f172a">60%</text>
+    </g>
+    
+    <!-- Course 3 -->
+    <g transform="translate(16, 170)">
+      <text x="12" y="18" font-size="12" font-weight="600" fill="#0f172a">AI Integration Strategies</text>
+      <rect x="12" y="28" width="400" height="8" rx="4" fill="#e2e8f0" />
+      <rect x="12" y="28" width="180" height="8" rx="4" fill="#a855f7" />
+      <text x="424" y="36" font-size="12" font-weight="600" fill="#0f172a">45%</text>
+    </g>
+  </g>
+</svg>

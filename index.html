@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TASKAS — Technology-driven digital solutions company specializing in website development, UI/UX design, AI automation, and end-to-end technical project execution." />
+  <meta name="keywords" content="TASKAS, digital agency, web development, UI UX design, AI automation, software development, IT consulting" />
+  <meta property="og:title" content="TASKAS — Digital Solutions Agency" />
+  <meta property="og:description" content="We build scalable, secure, and performance-focused technology solutions for startups, enterprises, and growing businesses." />
+  <meta property="og:type" content="website" />
+  <title>TASKAS — Digital Solutions Agency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    (function() {
+      const saved = localStorage.getItem('taskas-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? (saved === 'dark') : prefersDark;
+      if (!isDark) {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- WebGL 3D Canvas -->
+  <canvas id="webgl-canvas" class="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header class="nav-header" id="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" id="nav-logo" aria-label="TASKAS Home">
+        <svg class="logo-icon" viewBox="0 0 100 100" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 8px;">
+          <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#logoBlueGrad)" />
+          <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#logoOrangeGrad)" />
+          <defs>
+            <linearGradient id="logoBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+              <stop offset="0%" stop-color="#4a5f78" />
+              <stop offset="100%" stop-color="#1f2d3d" />
+            </linearGradient>
+            <linearGradient id="logoOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+              <stop offset="0%" stop-color="#e67e22" />
+              <stop offset="100%" stop-color="#f39c12" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">TASKAS</span>
+        <span class="nav-logo-dot" aria-hidden="true">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#services" class="nav-link" id="nav-services">Services</a></li>
+        <li><a href="#projects" class="nav-link" id="nav-projects">Projects</a></li>
+        <li><a href="pricing.html" class="nav-link" id="nav-pricing">Pricing</a></li>
+        <li><a href="#stats"    class="nav-link" id="nav-stats">Why Us</a></li>
+        <li><a href="#testimonials" class="nav-link" id="nav-testimonials">Reviews</a></li>
+        <li><a href="#contact"  class="nav-link nav-link--cta" id="nav-contact">Initiate</a></li>
+      </ul>
+      
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <!-- Sun Icon -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <!-- Moon Icon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <!-- Mobile drawer -->
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#services" class="nav-mobile-link" id="mob-services">Services</a></li>
+        <li><a href="#projects" class="nav-mobile-link" id="mob-projects">Projects</a></li>
+        <li><a href="pricing.html" class="nav-mobile-link" id="mob-pricing">Pricing</a></li>
+        <li><a href="#stats"    class="nav-mobile-link" id="mob-stats">Why Us</a></li>
+        <li><a href="#testimonials" class="nav-mobile-link" id="mob-testimonials">Reviews</a></li>
+        <li><a href="#contact"  class="nav-mobile-link nav-mobile-link--cta" id="mob-contact">Initiate Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 1 — HERO: THE MONOLITH               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <div class="hero-atmosphere" id="hero-atmosphere" aria-hidden="true">
+      <div class="hero-fog-layer hero-fog-amber"></div>
+      <div class="hero-fog-layer hero-fog-ice"></div>
+      <div class="hero-grid-lines"></div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-status-label">
+        <span class="status-dot" aria-hidden="true"></span>
+        DIGITAL SOLUTIONS AGENCY
+      </span>
+
+      <!-- WORDMARK — overflow visible, no clip on wrapper -->
+      <h1 class="hero-wordmark" id="hero-wordmark">TASKAS</h1>
+
+      <p class="hero-tagline">
+        We build the infrastructure<br />
+        of tomorrow's digital world.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary" id="hero-explore-btn">
+          Explore Services
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#contact" class="btn-ghost" id="hero-contact-btn">
+          Start a Project
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <span class="scroll-line"></span>
+      <span class="scroll-label">Scroll</span>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 3 — SERVICES: THE ARCHITECTURE       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="services" id="services" aria-labelledby="services-heading">
+    <div class="section-container">
+      <div class="services-header">
+        <span class="section-label reveal-fade-from-black">Our Services</span>
+        <h2 class="services-title reveal-curtain-drop" id="services-heading">What We Build</h2>
+        <p class="services-subtitle reveal-fade-from-black">
+          Six specialized disciplines. One seamless execution.
+        </p>
+      </div>
+
+      <div class="services-list" role="list">
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-web" tabindex="0" aria-expanded="false" aria-label="Website Development">
+          <span class="service-num" aria-hidden="true">01</span>
+          <div class="service-main">
+            <h3 class="service-name">Website Development</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">Custom business &amp; startup websites built for performance and growth. We deliver high-speed, SEO-optimized, responsive, and scalable web solutions using modern stacks — React, Next.js, and beyond.</p>
+              <div class="service-tags">
+                <span>React / Next.js</span><span>SEO Optimization</span><span>CMS Integration</span><span>E-Commerce</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-web-cta">Start a Web Project →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-ui" tabindex="0" aria-expanded="false" aria-label="UI/UX Design">
+          <span class="service-num" aria-hidden="true">02</span>
+          <div class="service-main">
+            <h3 class="service-name">UI / UX Design</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">User-centric interface and experience design that converts. We create wireframes, interactive prototypes, full design systems, and mobile-first layouts — every pixel purposeful and conversion-focused.</p>
+              <div class="service-tags">
+                <span>Figma Design</span><span>Prototyping</span><span>Design Systems</span><span>Mobile-First</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-ui-cta">Get a Design Audit →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-app" tabindex="0" aria-expanded="false" aria-label="Application Development">
+          <span class="service-num" aria-hidden="true">03</span>
+          <div class="service-main">
+            <h3 class="service-name">Application Development</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">End-to-end Android and web application development — secure, scalable, and high-performance. From REST API architecture to backend infrastructure and third-party integrations, we handle the full stack.</p>
+              <div class="service-tags">
+                <span>Android / Kotlin</span><span>REST APIs</span><span>Firebase</span><span>Node.js</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-app-cta">Build Your App →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-ai" tabindex="0" aria-expanded="false" aria-label="AI and Automation Solutions">
+          <span class="service-num" aria-hidden="true">04</span>
+          <div class="service-main">
+            <h3 class="service-name">AI &amp; Automation</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">AI chatbots, intelligent virtual agents, and workflow automation that eliminate friction and optimize operations. We implement smart systems using OpenAI, LangChain, and modern ML pipelines tailored to your business.</p>
+              <div class="service-tags">
+                <span>OpenAI / GPT</span><span>LangChain</span><span>Automation</span><span>ML Pipelines</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-ai-cta">Automate Your Workflow →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-consulting" tabindex="0" aria-expanded="false" aria-label="Technical Consulting and Projects">
+          <span class="service-num" aria-hidden="true">05</span>
+          <div class="service-main">
+            <h3 class="service-name">Technical Consulting</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">End-to-end project planning and execution for academic institutions, startups, and enterprises. We provide architecture design, technology roadmaps, stack selection, and hands-on technical delivery — from concept to launch.</p>
+              <div class="service-tags">
+                <span>Architecture Design</span><span>Tech Roadmap</span><span>Startup Projects</span><span>Academic Projects</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-consulting-cta">Book a Consultation →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+        <article class="service-row reveal-curtain-drop" role="listitem" id="service-support" tabindex="0" aria-expanded="false" aria-label="Maintenance and Technical Support">
+          <span class="service-num" aria-hidden="true">06</span>
+          <div class="service-main">
+            <h3 class="service-name">Maintenance &amp; Support</h3>
+            <div class="service-expand-body">
+              <p class="service-desc">Ongoing system maintenance, performance monitoring, and proactive optimization to keep your products running at peak efficiency. Our support team ensures maximum uptime, fast response, and continuous improvement.</p>
+              <div class="service-tags">
+                <span>24/7 Monitoring</span><span>Bug Fixes</span><span>Performance Tuning</span><span>Updates</span>
+              </div>
+              <a href="#contact" class="service-cta-link" id="service-support-cta">Get Support →</a>
+            </div>
+          </div>
+          <span class="service-expand-icon" aria-hidden="true">+</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 3B — PROJECTS: THE PORTFOLIO         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="projects" id="projects" aria-labelledby="projects-heading">
+    <div class="section-container">
+      <div class="projects-header">
+        <span class="section-label reveal-fade-from-black">Our Work</span>
+        <h2 class="projects-title reveal-curtain-drop" id="projects-heading">Selected Projects</h2>
+        <p class="projects-subtitle reveal-fade-from-black">
+          Real products. Real impact. Built by TASKAS.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="projects-filter reveal-fade-from-black" role="tablist" aria-label="Project filters">
+        <button class="filter-btn active" data-filter="all"   id="filter-all"   role="tab" aria-selected="true">All</button>
+        <button class="filter-btn"        data-filter="web"   id="filter-web"   role="tab" aria-selected="false">Web</button>
+        <button class="filter-btn"        data-filter="app"   id="filter-app"   role="tab" aria-selected="false">App</button>
+        <button class="filter-btn"        data-filter="ai"    id="filter-ai"    role="tab" aria-selected="false">AI</button>
+        <button class="filter-btn"        data-filter="ui"    id="filter-ui"    role="tab" aria-selected="false">UI/UX</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid" role="list">
+
+        <!-- Project 01 -->
+        <article class="project-card reveal-curtain-drop" data-category="web ai" role="listitem" id="proj-nexacommerce" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 35deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/nexacommerce_ui.svg" class="project-img" alt="NexaCommerce Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">01</span>
+                <div class="project-badges">
+                  <span class="badge">Web</span>
+                  <span class="badge">AI</span>
+                </div>
+              </div>
+              <h3 class="project-name">NexaCommerce</h3>
+              <p class="project-desc">Full-stack e-commerce platform with AI-powered product recommendation engine, real-time inventory management, and seamless payment gateway integration for a growing retail brand.</p>
+              <div class="project-stack">
+                <span>Next.js</span><span>Node.js</span><span>MongoDB</span><span>OpenAI API</span><span>Stripe</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--live">
+                  <span class="status-dot" aria-hidden="true"></span> Live
+                </span>
+                <a href="#contact" class="project-link" id="proj-nexa-link" aria-label="Inquire about NexaCommerce">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 02 -->
+        <article class="project-card reveal-curtain-drop" data-category="app ui" role="listitem" id="proj-pulsehealth" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 200deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/pulsehealth_ui.svg" class="project-img" alt="PulseHealth Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">02</span>
+                <div class="project-badges">
+                  <span class="badge">App</span>
+                  <span class="badge">UI/UX</span>
+                </div>
+              </div>
+              <h3 class="project-name">PulseHealth</h3>
+              <p class="project-desc">A comprehensive Android healthcare management application for private clinics — featuring patient records, appointment scheduling, prescription management, and doctor-patient communication in one platform.</p>
+              <div class="project-stack">
+                <span>Android</span><span>Kotlin</span><span>Firebase</span><span>Room DB</span><span>Figma</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--live">
+                  <span class="status-dot" aria-hidden="true"></span> Live
+                </span>
+                <a href="#contact" class="project-link" id="proj-pulse-link" aria-label="Inquire about PulseHealth">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 03 -->
+        <article class="project-card reveal-curtain-drop" data-category="ai web" role="listitem" id="proj-urbanflow" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 270deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/urbanflow_ui.svg" class="project-img" alt="UrbanFlow Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">03</span>
+                <div class="project-badges">
+                  <span class="badge">AI</span>
+                  <span class="badge">Web</span>
+                </div>
+              </div>
+              <h3 class="project-name">UrbanFlow</h3>
+              <p class="project-desc">Smart city traffic intelligence dashboard with ML-powered congestion prediction, real-time sensor data visualization, and route optimization algorithms deployed for a municipal government client.</p>
+              <div class="project-stack">
+                <span>React</span><span>Python</span><span>TensorFlow</span><span>WebSockets</span><span>MapBox</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--live">
+                  <span class="status-dot" aria-hidden="true"></span> Live
+                </span>
+                <a href="#contact" class="project-link" id="proj-urban-link" aria-label="Inquire about UrbanFlow">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 04 -->
+        <article class="project-card reveal-curtain-drop" data-category="app web" role="listitem" id="proj-cryptovault" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 45deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/cryptovault_ui.svg" class="project-img" alt="CryptoVault Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">04</span>
+                <div class="project-badges">
+                  <span class="badge">App</span>
+                  <span class="badge">Web</span>
+                </div>
+              </div>
+              <h3 class="project-name">CryptoVault</h3>
+              <p class="project-desc">Cross-platform crypto portfolio tracker featuring real-time price analytics, automated P&amp;L reporting, multi-wallet support, and intelligent alert systems for individual and institutional investors.</p>
+              <div class="project-stack">
+                <span>React Native</span><span>Node.js</span><span>PostgreSQL</span><span>CoinGecko API</span><span>JWT</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--live">
+                  <span class="status-dot" aria-hidden="true"></span> Live
+                </span>
+                <a href="#contact" class="project-link" id="proj-crypto-link" aria-label="Inquire about CryptoVault">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 05 -->
+        <article class="project-card reveal-curtain-drop" data-category="ai ui web" role="listitem" id="proj-edupath" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 150deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/edupath_ui.svg" class="project-img" alt="EduPath Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">05</span>
+                <div class="project-badges">
+                  <span class="badge">AI</span>
+                  <span class="badge">UI/UX</span>
+                </div>
+              </div>
+              <h3 class="project-name">EduPath</h3>
+              <p class="project-desc">AI-powered learning management system for educational institutions — featuring adaptive learning paths, automated assessment generation, progress tracking, and a teacher-student collaboration workspace.</p>
+              <div class="project-stack">
+                <span>Vue.js</span><span>Django</span><span>OpenAI</span><span>MySQL</span><span>Redis</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--wip">
+                  <span class="status-dot status-dot--wip" aria-hidden="true"></span> In Progress
+                </span>
+                <a href="#contact" class="project-link" id="proj-edu-link" aria-label="Inquire about EduPath">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 06 -->
+        <article class="project-card reveal-curtain-drop" data-category="app web ui" role="listitem" id="proj-logitrack" tabindex="0">
+          <div class="project-card-inner">
+            <div class="project-visual" aria-hidden="true">
+              <div class="project-visual-bg" style="--proj-hue: 10deg;"></div>
+              <div class="project-visual-grid"></div>
+              <img src="images/logitrack_ui.svg" class="project-img" alt="LogiTrack Dashboard" />
+              <div class="project-visual-lines" aria-hidden="true"></div>
+            </div>
+            <div class="project-meta">
+              <div class="project-top">
+                <span class="project-num">06</span>
+                <div class="project-badges">
+                  <span class="badge">App</span>
+                  <span class="badge">UI/UX</span>
+                </div>
+              </div>
+              <h3 class="project-name">LogiTrack</h3>
+              <p class="project-desc">Enterprise logistics and fleet management platform with GPS live tracking, automated dispatch routing, driver performance analytics, and a client-facing shipment visibility portal — deployed across 3 cities.</p>
+              <div class="project-stack">
+                <span>React</span><span>Express.js</span><span>Google Maps</span><span>Socket.io</span><span>MongoDB</span>
+              </div>
+              <div class="project-footer">
+                <span class="project-status project-status--live">
+                  <span class="status-dot" aria-hidden="true"></span> Live
+                </span>
+                <a href="#contact" class="project-link" id="proj-logi-link" aria-label="Inquire about LogiTrack">Inquire →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+
+      <!-- Deck Carousel Navigation Controls -->
+      <div class="projects-controls" id="projects-controls" aria-label="Project carousel controls">
+        <div class="deck-arrows">
+          <button type="button" class="deck-arrow-btn" id="deck-prev-btn" aria-label="Previous project">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+          <button type="button" class="deck-arrow-btn" id="deck-next-btn" aria-label="Next project">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+        </div>
+        <div class="deck-dots" id="deck-dots" role="tablist" aria-label="Project card pages">
+          <!-- Dots will be dynamically generated by JS -->
+        </div>
+      </div>
+
+      <div class="projects-footer-cta reveal-fade-from-black">
+        <p>Have a project in mind?</p>
+        <a href="#contact" class="btn-outline" id="projects-cta-btn">Let's Build It Together</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 4 — STATS: THE EVIDENCE              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="stats" id="stats" aria-labelledby="stats-heading">
+    <div class="stats-rotated-label" aria-hidden="true">TRUSTED BY GROWING BUSINESSES</div>
+    <div class="section-container">
+      <div class="stats-header reveal-slide-from-edge">
+        <span class="section-label">Why Choose TASKAS</span>
+        <h2 class="stats-title" id="stats-heading">Built on Precision &amp; Trust</h2>
+      </div>
+      <div class="stats-grid" role="list">
+        <div class="stat-block reveal-slide-from-edge" role="listitem" id="stat-projects">
+          <span class="stat-number" data-target="100" data-suffix="+">0+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-block reveal-slide-from-edge" role="listitem" id="stat-clients">
+          <span class="stat-number" data-target="50" data-suffix="+">0+</span>
+          <span class="stat-label">Satisfied Clients</span>
+        </div>
+        <div class="stat-block reveal-slide-from-edge" role="listitem" id="stat-industries">
+          <span class="stat-number" data-target="6" data-suffix="">0</span>
+          <span class="stat-label">Core Service Areas</span>
+        </div>
+        <div class="stat-block reveal-slide-from-edge" role="listitem" id="stat-uptime">
+          <span class="stat-number" data-target="99" data-suffix="%">0%</span>
+          <span class="stat-label">Delivery Success Rate</span>
+        </div>
+      </div>
+
+      <div class="why-pillars">
+        <div class="pillar reveal-slide-from-edge" id="pillar-quality">
+          <div class="pillar-icon" aria-hidden="true">◈</div>
+          <h3 class="pillar-title">Quality Driven</h3>
+          <p class="pillar-desc">Every project is treated as a flagship — no shortcuts, no compromise on standards.</p>
+        </div>
+        <div class="pillar reveal-slide-from-edge" id="pillar-innovation">
+          <div class="pillar-icon" aria-hidden="true">◈</div>
+          <h3 class="pillar-title">Innovation First</h3>
+          <p class="pillar-desc">We embrace modern technologies and future-ready frameworks to keep you ahead.</p>
+        </div>
+        <div class="pillar reveal-slide-from-edge" id="pillar-reliability">
+          <div class="pillar-icon" aria-hidden="true">◈</div>
+          <h3 class="pillar-title">Reliable Delivery</h3>
+          <p class="pillar-desc">Committed timelines, transparent process, and sustained technical support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 4.5 — TESTIMONIALS: THE ECHO         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="testimonials-atmosphere" aria-hidden="true">
+      <div class="testimonials-glow-orb"></div>
+    </div>
+    <div class="section-container">
+      <div class="testimonials-header">
+        <span class="section-label reveal-fade-from-black">Testimonials</span>
+        <h2 class="testimonials-title reveal-curtain-drop" id="testimonials-heading">What Our Clients Say</h2>
+        <p class="testimonials-subtitle reveal-fade-from-black">
+          Real feedback from Indian industry leaders and digital scale-ups.
+        </p>
+      </div>
+
+      <div class="testimonials-grid" role="list">
+        <!-- Testimonial 1 -->
+        <blockquote class="testimonial-card reveal-curtain-drop" role="listitem">
+          <div class="testimonial-content">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="testimonial-text">
+              TASKAS delivered our e-commerce recommendation engine in record time. Their technical depth in Next.js and AI integration helped us scale our transaction throughput during the festive season. A top-tier engineering partner.
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--author-bg: var(--amber-trace); --author-color: var(--amber);">RD</div>
+            <div class="author-info">
+              <cite class="author-name">Rohan Deshmukh</cite>
+              <span class="author-role">Co-Founder &amp; CTO</span>
+              <span class="author-company">IndiKart Logistics, Mumbai</span>
+            </div>
+          </div>
+        </blockquote>
+
+        <!-- Testimonial 2 -->
+        <blockquote class="testimonial-card reveal-curtain-drop" role="listitem" style="transition-delay: 0.1s;">
+          <div class="testimonial-content">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="testimonial-text">
+              Our clinical app required strict data compliance and a fluid Android experience. The team at TASKAS demonstrated exceptional skill with Kotlin and Firebase, delivering a solution that increased our doctor consultation bookings by 40%.
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--author-bg: rgba(127, 0, 255, 0.05); --author-color: var(--ice);">AS</div>
+            <div class="author-info">
+              <cite class="author-name">Ananya Sen</cite>
+              <span class="author-role">VP of Product</span>
+              <span class="author-company">HealthKart India, Gurugram</span>
+            </div>
+          </div>
+        </blockquote>
+
+        <!-- Testimonial 3 -->
+        <blockquote class="testimonial-card reveal-curtain-drop" role="listitem" style="transition-delay: 0.2s;">
+          <div class="testimonial-content">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p class="testimonial-text">
+              The traffic simulation dashboard that TASKAS built for us stands out for its high performance and real-time WebSocket visualization. Their work enabled municipal stakeholders to easily understand and optimize city traffic flows.
+            </p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="--author-bg: var(--amber-trace); --author-color: var(--amber);">VM</div>
+            <div class="author-info">
+              <cite class="author-name">Vikram Malhotra</cite>
+              <span class="author-role">Head of Engineering</span>
+              <span class="author-company">FinFlo Technologies, Bengaluru</span>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 5 — CONTACT: THE APERTURE            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="contact-frost" aria-hidden="true"></div>
+    <div class="contact-amber-edge" aria-hidden="true"></div>
+    <div class="section-container">
+      <div class="contact-layout reveal-fade-from-black">
+
+        <!-- Left — headline -->
+        <div class="contact-left">
+          <span class="section-label">Ready to Build?</span>
+          <h2 class="contact-headline" id="contact-heading">
+            Let's Create<br />
+            Something<br />
+            <em>Extraordinary.</em>
+          </h2>
+          <p class="contact-sub">
+            Tell us about your project. We respond to every inquiry within 24 hours.
+          </p>
+          <div class="contact-info-row">
+            <a href="mailto:team@taskas.tech" class="contact-email" id="contact-email-link">
+              team@taskas.tech
+            </a>
+          </div>
+          <div class="contact-socials" style="display: flex; gap: 12px; align-items: center;">
+            <a href="mailto:team@taskas.tech" class="contact-social-link" id="contact-social-mail" aria-label="Email TASKAS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+            <a href="https://wa.me/918180818416" target="_blank" rel="noopener noreferrer" class="contact-social-link" id="contact-social-wa" aria-label="Chat on WhatsApp" style="color: #25D366; border-color: rgba(37, 211, 102, 0.3);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="vertical-align: middle; margin-right: 4px;">
+                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.403.002 9.803-4.386 9.805-9.789.002-2.618-1.01-5.078-2.853-6.924C16.383 2.052 13.926.988 11.312.988 5.906.988 1.51 5.38 1.508 10.785c-.001 1.52.417 3.003 1.21 4.316l-.991 3.613 3.71-.973l.62.368zM18.006 14.75c-.33-.165-1.953-.963-2.251-1.07-.3-.109-.519-.165-.738.165-.219.33-.847 1.07-1.039 1.286-.192.217-.384.244-.714.079-.33-.166-1.393-.513-2.654-1.638-.98-.874-1.642-1.953-1.835-2.283-.193-.33-.021-.508.144-.672.148-.148.33-.385.495-.578.165-.193.22-.33.33-.55.109-.22.055-.412-.027-.577-.082-.165-.738-1.782-1.012-2.443-.267-.643-.56-.554-.738-.558-.19-.001-.41-.001-.63-.001-.22 0-.577.083-.879.412-.303.33-1.155 1.129-1.155 2.753 0 1.624 1.182 3.193 1.346 3.413.165.22 2.327 3.553 5.637 4.981.787.34 1.4.542 1.88.697.79.25 1.51.215 2.079.13.633-.095 1.953-.798 2.227-1.568.275-.77.275-1.43.193-1.568-.083-.138-.303-.22-.633-.385z"/>
+              </svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Right — functional contact form -->
+        <div class="contact-right">
+          <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form-group" id="fg-name">
+              <label for="form-name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                id="form-name"
+                name="name"
+                class="form-input"
+                placeholder="Your full name"
+                autocomplete="name"
+                required
+                aria-required="true"
+              />
+              <span class="form-error" id="err-name" role="alert"></span>
+            </div>
+
+            <div class="form-group" id="fg-email">
+              <label for="form-email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="form-input"
+                placeholder="your@email.com"
+                autocomplete="email"
+                required
+                aria-required="true"
+              />
+              <span class="form-error" id="err-email" role="alert"></span>
+            </div>
+
+            <div class="form-group" id="fg-service">
+              <label for="form-service" class="form-label">Service Needed</label>
+              <select id="form-service" name="service" class="form-input form-select" required aria-required="true">
+                <option value="" disabled selected>Select a service…</option>
+                <option value="Website Development">Website Development</option>
+                <option value="UI/UX Design">UI / UX Design</option>
+                <option value="Application Development">Application Development</option>
+                <option value="AI &amp; Automation">AI &amp; Automation</option>
+                <option value="Technical Consulting">Technical Consulting</option>
+                <option value="Maintenance &amp; Support">Maintenance &amp; Support</option>
+                <option value="Other">Other / Not Sure</option>
+              </select>
+              <span class="form-error" id="err-service" role="alert"></span>
+            </div>
+
+            <div class="form-group" id="fg-message">
+              <label for="form-message" class="form-label">Project Details</label>
+              <textarea
+                id="form-message"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Tell us about your project, timeline, and budget…"
+                rows="5"
+                required
+                aria-required="true"
+              ></textarea>
+              <span class="form-error" id="err-message" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn-outline form-submit" id="contact-submit-btn">
+              <span class="submit-text">INITIATE PROJECT</span>
+              <span class="submit-loading" aria-hidden="true">SENDING…</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  SCENE 6 — FOOTER: END TITLE                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-amber-rule" aria-hidden="true"></div>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo-link" aria-label="TASKAS home">
+          <span class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 6px;">
+              <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#footerBlueGrad)" />
+              <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#footerOrangeGrad)" />
+              <defs>
+                <linearGradient id="footerBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+                  <stop offset="0%" stop-color="#4a5f78" />
+                  <stop offset="100%" stop-color="#1f2d3d" />
+                </linearGradient>
+                <linearGradient id="footerOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+                  <stop offset="0%" stop-color="#e67e22" />
+                  <stop offset="100%" stop-color="#f39c12" />
+                </linearGradient>
+              </defs>
+            </svg>
+            TASKAS<span class="footer-logo-dot">.</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Technology-driven digital solutions.</p>
+        <a href="mailto:team@taskas.tech" class="footer-email-inline" id="footer-email-inline">team@taskas.tech</a>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Navigate</h4>
+          <nav aria-label="Footer navigation">
+             <a href="#services" class="footer-link" id="footer-services">Services</a>
+             <a href="#projects" class="footer-link" id="footer-projects">Projects</a>
+             <a href="pricing.html" class="footer-link" id="footer-pricing">Pricing</a>
+             <a href="#stats"    class="footer-link" id="footer-why">Why Us</a>
+             <a href="#testimonials" class="footer-link" id="footer-testimonials">Reviews</a>
+             <a href="#contact"  class="footer-link" id="footer-contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <nav aria-label="Services navigation">
+            <a href="#service-web"        class="footer-link" id="footer-svc-web">Website Development</a>
+            <a href="#service-ui"         class="footer-link" id="footer-svc-ui">UI / UX Design</a>
+            <a href="#service-app"        class="footer-link" id="footer-svc-app">App Development</a>
+            <a href="#service-ai"         class="footer-link" id="footer-svc-ai">AI &amp; Automation</a>
+            <a href="#service-consulting" class="footer-link" id="footer-svc-consulting">Consulting</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Contact</h4>
+          <div class="footer-contact-info" style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+             <span style="font-size: 14px; color: #888;">Maharashtra, India</span>
+             <a href="mailto:team@taskas.tech" class="footer-link" id="footer-mail" style="font-size: 14px; color: #ccc; text-decoration: none;">team@taskas.tech</a>
+             <a href="https://wa.me/918180818416" target="_blank" rel="noopener noreferrer" class="footer-whatsapp-link" style="display: inline-flex; align-items: center; gap: 8px; color: #25D366; text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 4px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
+                   <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.403.002 9.803-4.386 9.805-9.789.002-2.618-1.01-5.078-2.853-6.924C16.383 2.052 13.926.988 11.312.988 5.906.988 1.51 5.38 1.508 10.785c-.001 1.52.417 3.003 1.21 4.316l-.991 3.613 3.71-.973l.62.368zM18.006 14.75c-.33-.165-1.953-.963-2.251-1.07-.3-.109-.519-.165-.738.165-.219.33-.847 1.07-1.039 1.286-.192.217-.384.244-.714.079-.33-.166-1.393-.513-2.654-1.638-.98-.874-1.642-1.953-1.835-2.283-.193-.33-.021-.508.144-.672.148-.148.33-.385.495-.578.165-.193.22-.33.33-.55.109-.22.055-.412-.027-.577-.082-.165-.738-1.782-1.012-2.443-.267-.643-.56-.554-.738-.558-.19-.001-.41-.001-.63-.001-.22 0-.577.083-.879.412-.303.33-1.155 1.129-1.155 2.753 0 1.624 1.182 3.193 1.346 3.413.165.22 2.327 3.553 5.637 4.981.787.34 1.4.542 1.88.697.79.25 1.51.215 2.079.13.633-.095 1.953-.798 2.227-1.568.275-.77.275-1.43.193-1.568-.083-.138-.303-.22-.633-.385z"/>
+                </svg>
+                WhatsApp
+             </a>
+             <a href="#contact" class="footer-link" id="footer-initiate" style="font-size: 14px; color: #ccc; text-decoration: none;">Start a Project</a>
+             <a href="#projects" class="footer-link" id="footer-portfolio" style="font-size: 14px; color: #ccc; text-decoration: none;">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 TASKAS. All rights reserved.</span>
+      <div class="footer-bottom-right">
+        <span class="footer-industry">IT Services &amp; Digital Solutions</span>
+        <span class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Systems Operational
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="main.js?v=2"></script>
+</body>
+</html>

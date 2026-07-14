@@ -1,0 +1,7 @@
+.env
+leads.json
+__pycache__/
+request_log.txt
+*.pyc
+*.log
+token.json

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#f8fafc; font-family:system-ui, -apple-system, sans-serif;">
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="500" fill="#ffffff" />
+  <line x1="200" y1="0" x2="200" y2="500" stroke="#f1f5f9" stroke-width="1" />
+  <text x="24" y="40" font-size="18" font-weight="700" fill="#0f172a">LogiTrack</text>
+  
+  <rect x="16" y="80" width="168" height="36" rx="8" fill="#fff5f5" />
+  <text x="32" y="103" font-size="13" font-weight="600" fill="#c53030">Fleet Map</text>
+  
+  <text x="32" y="155" font-size="13" font-weight="500" fill="#64748b">Shipments</text>
+  <text x="32" y="205" font-size="13" font-weight="500" fill="#64748b">Dispatches</text>
+  <text x="32" y="255" font-size="13" font-weight="500" fill="#64748b">Analytics</text>
+  <text x="32" y="305" font-size="13" font-weight="500" fill="#64748b">Settings</text>
+
+  <!-- Header -->
+  <rect x="200" y="0" width="600" height="64" fill="#ffffff" />
+  <line x1="200" y1="64" x2="800" y2="64" stroke="#f1f5f9" stroke-width="1" />
+  <text x="224" y="40" font-size="16" font-weight="600" fill="#0f172a">Fleet Management</text>
+  <circle cx="750" cy="32" r="16" fill="#e2e8f0" />
+  
+  <!-- KPI Grid -->
+  <g transform="translate(224, 88)">
+    <rect x="0" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">ACTIVE FLEET</text>
+    <text x="16" y="58" font-size="24" font-weight="700" fill="#0f172a">12 vehicles</text>
+    <text x="16" y="74" font-size="10" font-weight="500" fill="#16a34a">100% operational</text>
+
+    <rect x="184" y="0" width="168" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="200" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">PENDING DELIVERIES</text>
+    <text x="200" y="58" font-size="24" font-weight="700" fill="#0f172a">48</text>
+    <text x="200" y="74" font-size="10" font-weight="500" fill="#c53030">5 urgent orders</text>
+
+    <rect x="368" y="0" width="184" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="384" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">AVG TRANSIT TIME</text>
+    <text x="384" y="58" font-size="24" font-weight="700" fill="#0f172a">34.2 mins</text>
+    <text x="384" y="74" font-size="10" font-weight="500" fill="#16a34a">-1.5m optimal routing</text>
+  </g>
+
+  <!-- Route Dashboard Map representation -->
+  <g transform="translate(224, 200)">
+    <rect x="0" y="0" width="552" height="268" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="13" font-weight="600" fill="#0f172a">Transit Operations Map</text>
+    
+    <!-- Minimalist Map Graphic -->
+    <rect x="16" y="44" width="520" height="208" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    
+    <!-- Road map lines -->
+    <path d="M 30 100 Q 150 70 250 140 T 450 90 T 520 180" fill="none" stroke="#cbd5e1" stroke-width="6" />
+    <path d="M 30 100 Q 150 70 250 140 T 450 90 T 520 180" fill="none" stroke="#ea580c" stroke-width="4" stroke-dasharray="8 4" />
+    
+    <!-- Vehicle Pins -->
+    <circle cx="250" cy="140" r="10" fill="#ea580c" opacity="0.3" />
+    <circle cx="250" cy="140" r="4" fill="#ea580c" />
+    <text x="250" y="125" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Truck #03</text>
+    
+    <circle cx="450" cy="90" r="10" fill="#22c55e" opacity="0.3" />
+    <circle cx="450" cy="90" r="4" fill="#22c55e" />
+    <text x="450" y="75" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">Van #08</text>
+
+    <!-- Map Legend -->
+    <rect x="420" y="160" width="100" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+    <circle cx="435" cy="180" r="4" fill="#ea580c" />
+    <text x="445" y="183" font-size="9" fill="#475569">In Transit</text>
+    <circle cx="435" cy="200" r="4" fill="#22c55e" />
+    <text x="445" y="203" font-size="9" fill="#475569">Delivered</text>
+    <circle cx="435" cy="220" r="4" fill="#94a3b8" />
+    <text x="445" y="223" font-size="9" fill="#475569">Idle</text>
+  </g>
+</svg>

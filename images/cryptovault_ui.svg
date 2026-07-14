@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background:#f8fafc; font-family:system-ui, -apple-system, sans-serif;">
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="200" height="500" fill="#ffffff" />
+  <line x1="200" y1="0" x2="200" y2="500" stroke="#f1f5f9" stroke-width="1" />
+  <text x="24" y="40" font-size="18" font-weight="700" fill="#0f172a">CryptoVault</text>
+  
+  <rect x="16" y="80" width="168" height="36" rx="8" fill="#fffbeb" />
+  <text x="32" y="103" font-size="13" font-weight="600" fill="#d97706">Portfolio</text>
+  
+  <text x="32" y="155" font-size="13" font-weight="500" fill="#64748b">Wallets</text>
+  <text x="32" y="205" font-size="13" font-weight="500" fill="#64748b">Transactions</text>
+  <text x="32" y="255" font-size="13" font-weight="500" fill="#64748b">Staking</text>
+  <text x="32" y="305" font-size="13" font-weight="500" fill="#64748b">Settings</text>
+
+  <!-- Header -->
+  <rect x="200" y="0" width="600" height="64" fill="#ffffff" />
+  <line x1="200" y1="64" x2="800" y2="64" stroke="#f1f5f9" stroke-width="1" />
+  <text x="224" y="40" font-size="16" font-weight="600" fill="#0f172a">My Portfolio</text>
+  <circle cx="750" cy="32" r="16" fill="#e2e8f0" />
+  
+  <!-- KPI Grid -->
+  <g transform="translate(224, 88)">
+    <rect x="0" y="0" width="352" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="20" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">PORTFOLIO BALANCE</text>
+    <text x="20" y="62" font-size="28" font-weight="700" fill="#0f172a">$12,450.80</text>
+    <text x="200" y="60" font-size="11" font-weight="600" fill="#16a34a">+18.5% (+$1,940.23)</text>
+    
+    <rect x="368" y="0" width="184" height="88" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="384" y="28" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.05em">STAKING APY</text>
+    <text x="384" y="58" font-size="24" font-weight="700" fill="#0f172a">8.42%</text>
+    <text x="384" y="74" font-size="10" font-weight="500" fill="#d97706">2 active nodes</text>
+  </g>
+
+  <!-- Asset Table -->
+  <g transform="translate(224, 200)">
+    <rect x="0" y="0" width="552" height="268" rx="12" fill="#ffffff" stroke="#f1f5f9" stroke-width="1" />
+    <text x="16" y="28" font-size="13" font-weight="600" fill="#0f172a">Your Assets</text>
+    
+    <rect x="16" y="48" width="520" height="32" fill="#f8fafc" rx="6" />
+    <text x="28" y="68" font-size="11" font-weight="600" fill="#64748b">Asset</text>
+    <text x="180" y="68" font-size="11" font-weight="600" fill="#64748b">Price</text>
+    <text x="300" y="68" font-size="11" font-weight="600" fill="#64748b">24h Change</text>
+    <text x="440" y="68" font-size="11" font-weight="600" fill="#64748b">Holdings</text>
+    
+    <g transform="translate(16, 90)">
+      <text x="12" y="18" font-size="12" font-weight="700" fill="#0f172a">BTC <tspan font-weight="400" fill="#94a3b8">Bitcoin</tspan></text>
+      <text x="164" y="18" font-size="12" fill="#0f172a">$64,250.00</text>
+      <text x="284" y="18" font-size="12" font-weight="600" fill="#16a34a">+2.4%</text>
+      <text x="424" y="18" font-size="12" font-weight="600" fill="#0f172a">0.12 BTC <tspan font-weight="400" fill="#94a3b8">($7,710.00)</tspan></text>
+    </g>
+    <line x1="16" y1="125" x2="536" y2="125" stroke="#f1f5f9" stroke-width="1" />
+    
+    <g transform="translate(16, 135)">
+      <text x="12" y="18" font-size="12" font-weight="700" fill="#0f172a">ETH <tspan font-weight="400" fill="#94a3b8">Ethereum</tspan></text>
+      <text x="164" y="18" font-size="12" fill="#0f172a">$3,480.00</text>
+      <text x="284" y="18" font-size="12" font-weight="600" fill="#dc2626">-1.2%</text>
+      <text x="424" y="18" font-size="12" font-weight="600" fill="#0f172a">1.15 ETH <tspan font-weight="400" fill="#94a3b8">($4,002.00)</tspan></text>
+    </g>
+    <line x1="16" y1="170" x2="536" y2="170" stroke="#f1f5f9" stroke-width="1" />
+
+    <g transform="translate(16, 180)">
+      <text x="12" y="18" font-size="12" font-weight="700" fill="#0f172a">SOL <tspan font-weight="400" fill="#94a3b8">Solana</tspan></text>
+      <text x="164" y="18" font-size="12" fill="#0f172a">$142.50</text>
+      <text x="284" y="18" font-size="12" font-weight="600" fill="#16a34a">+5.8%</text>
+      <text x="424" y="18" font-size="12" font-weight="600" fill="#0f172a">5.20 SOL <tspan font-weight="400" fill="#94a3b8">($741.00)</tspan></text>
+    </g>
+  </g>
+</svg>
