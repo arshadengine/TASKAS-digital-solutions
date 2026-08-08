@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Void Exception | TASKAS Technologies</title>
+  <meta name="description" content="The page you are looking for does not exist in this database system. Return to TASKAS Technologies Homepage." />
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <style>
+    .error-page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      background: var(--void);
+      overflow: hidden;
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 15vw, 10rem);
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--amber);
+      opacity: 0.8;
+      letter-spacing: 0.1em;
+      margin-bottom: 0;
+      line-height: 1;
+      filter: drop-shadow(0 0 15px rgba(232, 150, 10, 0.2));
+    }
+    .error-tagline {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    .error-desc {
+      font-size: 0.85rem;
+      color: var(--mist);
+      max-width: 450px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+    .error-actions {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <main class="error-page-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-tagline">Void System Exception</p>
+    <p class="error-desc">
+      The coordinates you requested do not map to any active record in the TASKAS database system. The page may have been relocated or purged.
+    </p>
+    <div class="error-actions">
+      <a href="index.html" class="btn-primary">Return Home</a>
+      <a href="blog.html" class="btn-ghost">Read Blog</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insights & Articles | TASKAS Technologies Blog</title>
+  
+  <meta name="description" content="Read the latest insights on website development, AI automation, digital marketing, and local SEO services from TASKAS Technologies. Serving Pune, Mumbai, Maharashtra, and India." />
+  <meta name="keywords" content="Website Development, AI Automation, UI/UX Design, SEO Services, Business Growth, tech blog, Pune IT agency blog" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="TASKAS Technologies">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="https://www.taskas.tech/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Insights & Articles | TASKAS Technologies Blog" />
+  <meta property="og:description" content="Read the latest insights on website development, AI automation, digital marketing, and local SEO services from TASKAS Technologies." />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TASKAS Technologies">
+  <meta property="og:url" content="https://www.taskas.tech/blog.html" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Insights & Articles | TASKAS Technologies Blog">
+  <meta name="twitter:description" content="Read the latest insights on website development, AI automation, digital marketing, and local SEO services from TASKAS Technologies.">
+  <meta name="twitter:image" content="https://www.taskas.tech/assets/og-image.jpg">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <script>
+    (function() {
+      const saved = localStorage.getItem('taskas-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? (saved === 'dark') : prefersDark;
+      if (!isDark) {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.taskas.tech/blog.html#webpage",
+        "url": "https://www.taskas.tech/blog.html",
+        "name": "Insights & Articles | TASKAS Technologies Blog",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://www.taskas.tech/#website",
+          "url": "https://www.taskas.tech/"
+        },
+        "description": "Read the latest insights on website development, AI automation, digital marketing, and local SEO services from TASKAS Technologies."
+      },
+      {
+        "@type": "Blog",
+        "@id": "https://www.taskas.tech/blog.html#blog",
+        "name": "TASKAS Technologies Insights Blog",
+        "url": "https://www.taskas.tech/blog.html",
+        "description": "Educational articles covering Web Development, AI Business Automation, SEO, and Design.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "TASKAS Technologies",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.taskas.tech/images/favicon.svg"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.taskas.tech/blog.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.taskas.tech/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.taskas.tech/blog.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body style="padding-top: var(--nav-h);">
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- WebGL 3D Canvas -->
+  <canvas id="webgl-canvas" class="webgl-canvas" aria-hidden="true"></canvas>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header class="nav-header scrolled" id="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" id="nav-logo" aria-label="TASKAS Home">
+        <svg class="logo-icon" viewBox="0 0 100 100" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 8px;">
+          <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#logoBlueGrad)" />
+          <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#logoOrangeGrad)" />
+          <defs>
+            <linearGradient id="logoBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+              <stop offset="0%" stop-color="#4a5f78" />
+              <stop offset="100%" stop-color="#1f2d3d" />
+            </linearGradient>
+            <linearGradient id="logoOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+              <stop offset="0%" stop-color="#e67e22" />
+              <stop offset="100%" stop-color="#f39c12" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">TASKAS</span>
+        <span class="nav-logo-dot" aria-hidden="true">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="index.html#stats" class="nav-link">Why Us</a></li>
+        <li><a href="index.html#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="index.html#contact" class="nav-link nav-link--cta">Initiate</a></li>
+      </ul>
+      
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <ul role="list">
+        <li><a href="index.html#services" class="nav-mobile-link">Services</a></li>
+        <li><a href="about.html" class="nav-mobile-link">About</a></li>
+        <li><a href="index.html#projects" class="nav-mobile-link">Projects</a></li>
+        <li><a href="pricing.html" class="nav-mobile-link">Pricing</a></li>
+        <li><a href="index.html#stats" class="nav-mobile-link">Why Us</a></li>
+        <li><a href="index.html#testimonials" class="nav-mobile-link">Reviews</a></li>
+        <li><a href="index.html#contact" class="nav-mobile-link nav-mobile-link--cta">Initiate Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- BREADCRUMBS -->
+  <div class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumbs-separator">&gt;</span>
+    <span class="breadcrumbs-active">Blog</span>
+  </div>
+
+  <!-- BLOG HUB SECTION -->
+  <section class="blog-section">
+    <div class="blog-header">
+      <span class="section-label">TASKAS Insights</span>
+      <h1 class="blog-title">Engineering Knowledge</h1>
+      <p class="blog-subtitle">
+        Deep dives into web technology, AI automation pipelines, and strategies for digital growth in a connected economy.
+      </p>
+    </div>
+
+    <!-- Category Filter Controls -->
+    <div class="blog-categories" id="blog-categories">
+      <button class="category-btn active" data-category="all">All Articles</button>
+      <button class="category-btn" data-category="web-dev">Web Development</button>
+      <button class="category-btn" data-category="ai">AI</button>
+      <button class="category-btn" data-category="business">Business Growth</button>
+      <button class="category-btn" data-category="seo">SEO</button>
+      <button class="category-btn" data-category="design">Design</button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid" id="blog-grid">
+      
+      <!-- Card 1 -->
+      <article class="blog-card" data-category="web-dev business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Web Development</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>5 min read</span>
+            <span>•</span>
+            <span>July 2026</span>
+          </div>
+          <h2 class="blog-card-title">Why Every Business Needs a Professional Website in 2026</h2>
+          <p class="blog-card-excerpt">Discover why relying solely on social media is a critical business mistake, and how a fast, dedicated web hub establishes authoritative control.</p>
+          <div class="blog-card-footer">
+            <a href="blog/why-business-needs-website.html" class="blog-card-link">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="blog-card" data-category="ai business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">AI &amp; Automation</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>6 min read</span>
+            <span>•</span>
+            <span>July 2026</span>
+          </div>
+          <h2 class="blog-card-title">AI Automation for Small Businesses</h2>
+          <p class="blog-card-excerpt">Learn how standard SMEs leverage low-code tools and LLM integrations to automate repetitive tasks and recover 10+ operational hours weekly.</p>
+          <div class="blog-card-footer">
+            <a href="blog/ai-automation-small-business.html" class="blog-card-link">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="blog-card" data-category="web-dev business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Business Growth</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>4 min read</span>
+            <span>•</span>
+            <span>June 2026</span>
+          </div>
+          <h2 class="blog-card-title">Website vs. Social Media: Which One Matters More?</h2>
+          <p class="blog-card-excerpt">A breakdown of rented space vs. complete ownership. Learn how to combine them to maximize audience acquisition and brand authority.</p>
+          <div class="blog-card-footer">
+            <a href="blog/website-vs-social-media.html" class="blog-card-link">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="blog-card" data-category="web-dev design">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Web Development</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>5 min read</span>
+            <span>•</span>
+            <span>June 2026</span>
+          </div>
+          <h2 class="blog-card-title">Common Website Mistakes That Cost You Customers</h2>
+          <p class="blog-card-excerpt">Slow load times, confusing layout structures, and non-responsive assets drive users away. Avoid these errors to secure high conversions.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="blog-card" data-category="web-dev">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Web Development</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>7 min read</span>
+            <span>•</span>
+            <span>May 2026</span>
+          </div>
+          <h2 class="blog-card-title">Benefits of Custom Website Development</h2>
+          <p class="blog-card-excerpt">Unlike generic templates, custom structures offer tailored security, higher speeds, clean codebase, and unrestricted scalability.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="blog-card" data-category="seo business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">SEO</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>6 min read</span>
+            <span>•</span>
+            <span>May 2026</span>
+          </div>
+          <h2 class="blog-card-title">How SEO Helps Local Businesses Grow</h2>
+          <p class="blog-card-excerpt">Optimize for location queries across Pune and Maharashtra to capture customers looking for services in your immediate region.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="blog-card" data-category="design">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Design</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>5 min read</span>
+            <span>•</span>
+            <span>April 2026</span>
+          </div>
+          <h2 class="blog-card-title">Best Website Design Trends in 2026</h2>
+          <p class="blog-card-excerpt">A look into immersive 3D structures, glassmorphism elements, dark aesthetics, and micro-animations shape next-generation experiences.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 8 -->
+      <article class="blog-card" data-category="web-dev business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Web Development</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>6 min read</span>
+            <span>•</span>
+            <span>April 2026</span>
+          </div>
+          <h2 class="blog-card-title">E-commerce Website Checklist</h2>
+          <p class="blog-card-excerpt">Ensure your e-commerce shop satisfies essential security, checkout UX, catalog filters, and fast payment processing protocols.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 9 -->
+      <article class="blog-card" data-category="seo design">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">SEO</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>5 min read</span>
+            <span>•</span>
+            <span>March 2026</span>
+          </div>
+          <h2 class="blog-card-title">Landing Page Optimization Guide</h2>
+          <p class="blog-card-excerpt">How to optimize layout hierarchies, headers, copy elements, and call to action points to double conversion outputs.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 10 -->
+      <article class="blog-card" data-category="web-dev business">
+        <div class="blog-card-visual">
+          <div class="blog-card-visual-bg"></div>
+          <div class="blog-card-grid"></div>
+          <span class="blog-card-badge">Web Development</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>6 min read</span>
+            <span>•</span>
+            <span>March 2026</span>
+          </div>
+          <h2 class="blog-card-title">How to Choose the Right Web Development Company</h2>
+          <p class="blog-card-excerpt">A comprehensive checklist of factors to consider, from portfolio audit and tech stack to communication transparency and pricing model.</p>
+          <div class="blog-card-footer">
+            <a href="#" class="blog-card-link" onclick="alert('This article is under construction and will be published soon!')">Read More →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FOOTER                                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-amber-rule" aria-hidden="true"></div>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo-link" aria-label="TASKAS home">
+          <span class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 6px;">
+              <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#footerBlueGrad)" />
+              <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#footerOrangeGrad)" />
+              <defs>
+                <linearGradient id="footerBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+                  <stop offset="0%" stop-color="#4a5f78" />
+                  <stop offset="100%" stop-color="#1f2d3d" />
+                </linearGradient>
+                <linearGradient id="footerOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+                  <stop offset="0%" stop-color="#e67e22" />
+                  <stop offset="100%" stop-color="#f39c12" />
+                </linearGradient>
+              </defs>
+            </svg>
+            TASKAS<span class="footer-logo-dot">.</span>
+          </span>
+        </a>
+        <p class="footer-tagline">TASKAS Technologies</p>
+        <p style="font-size: 0.72rem; line-height: 1.5; color: var(--mist); margin: 0.75rem 0 1.25rem;">
+          Website development, UI/UX design, and AI business automation services for clients across Pune, Mumbai, Maharashtra, and India.
+        </p>
+        <a href="mailto:team@taskas.tech" class="footer-email-inline" id="footer-email-inline">team@taskas.tech</a>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <nav aria-label="Services navigation">
+            <a href="index.html#service-web" class="footer-link">Website Development</a>
+            <a href="index.html#service-ai" class="footer-link">AI Automation</a>
+            <a href="index.html#service-ui" class="footer-link">UI / UX Design</a>
+            <a href="blog.html" class="footer-link">SEO Services</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <nav aria-label="Company navigation">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="blog.html" class="footer-link active">Blog</a>
+            <a href="index.html#contact" class="footer-link">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <nav aria-label="Resources navigation">
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+            <a href="about.html#faq" class="footer-link">FAQ</a>
+            <a href="index.html#contact" class="footer-link">Careers</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Insights</h4>
+          <nav aria-label="Insights navigation">
+            <a href="blog/why-business-needs-website.html" class="footer-link">Why Every Business Needs a Website</a>
+            <a href="blog/ai-automation-small-business.html" class="footer-link">AI Automation for Small Businesses</a>
+            <a href="blog/website-vs-social-media.html" class="footer-link">Website vs. Social Media</a>
+            <a href="blog.html" class="footer-link" style="color: var(--amber); font-weight: 500;">View All Articles →</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 TASKAS Technologies. All rights reserved.</span>
+      <div class="footer-bottom-right">
+        <span class="footer-industry">IT Services &amp; Digital Solutions</span>
+        <span class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Systems Operational
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Blog category filter handler
+    (function() {
+      const filterBtns = document.querySelectorAll('.category-btn');
+      const cards = document.querySelectorAll('.blog-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Remove active class from all
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-category');
+
+          cards.forEach(card => {
+            const cardCats = card.getAttribute('data-category').split(' ');
+            if (category === 'all' || cardCats.includes(category)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Mobile Hamburg
+      const hamburger = document.getElementById('nav-hamburger');
+      const mobileNav = document.getElementById('nav-mobile');
+      if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+          const open = hamburger.classList.toggle('open');
+          mobileNav.classList.toggle('open', open);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

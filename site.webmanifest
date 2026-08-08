@@ -1,0 +1,16 @@
+{
+  "name": "TASKAS Technologies",
+  "short_name": "TASKAS",
+  "description": "TASKAS Technologies - Website Development, AI Automation & Digital Solutions in Pune, Mumbai, Maharashtra, India",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080d",
+  "theme_color": "#e8960a",
+  "icons": [
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
