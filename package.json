@@ -1,0 +1,29 @@
+{
+  "name": "taskas-digital-solutions",
+  "version": "1.0.0",
+  "description": "TASKAS - Digital Solutions Agency website with Vercel Speed Insights",
+  "main": "main.js",
+  "scripts": {
+    "dev": "python3 server.py",
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arshadengine/TASKAS-digital-solutions.git"
+  },
+  "keywords": [
+    "digital-agency",
+    "web-development",
+    "vercel",
+    "speed-insights"
+  ],
+  "author": "TASKAS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arshadengine/TASKAS-digital-solutions/issues"
+  },
+  "homepage": "https://github.com/arshadengine/TASKAS-digital-solutions#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}

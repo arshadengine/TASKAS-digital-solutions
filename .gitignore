@@ -5,3 +5,4 @@ request_log.txt
 *.pyc
 *.log
 token.json
+node_modules/
