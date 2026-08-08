@@ -186,6 +186,8 @@ const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 // ═══════════════════════════════════════════════════════════════
 (function initScroll() {
   $$('a[href^="#"]').forEach(a => {
+    // Skip #about so it goes to about.html in a new tab
+    if (a.getAttribute('href') === '#about') return;
     a.addEventListener('click', e => {
       const id = a.getAttribute('href').slice(1);
       const el = document.getElementById(id);
