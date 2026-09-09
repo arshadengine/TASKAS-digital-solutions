@@ -5,6 +5,34 @@
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+
+    // 1. Recruitment Email Dispatcher Action
+    if (data.action === "send_applicant_email" || data.action === "send_email") {
+      var to = data.to;
+      var subject = data.subject || "Application Update — TASKAS";
+      var htmlBody = data.htmlBody;
+      
+      if (!to || !htmlBody) {
+        return ContentService.createTextOutput(JSON.stringify({
+          status: "error",
+          message: "Missing 'to' or 'htmlBody' in email request."
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
+      
+      MailApp.sendEmail({
+        to: to,
+        subject: subject,
+        htmlBody: htmlBody,
+        name: "TASKAS People & Culture"
+      });
+      
+      return ContentService.createTextOutput(JSON.stringify({
+        status: "success",
+        message: "Recruitment email sent successfully to " + to,
+        stage: data.stage || "Notification"
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
     var sheetName = data.sheetName || "INITIATE'S";
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     

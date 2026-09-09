@@ -765,12 +765,48 @@
               <input type="url" id="app-linkedin" class="app-input" placeholder="https://linkedin.com/in/username" />
             </div>
 
-            <!-- Portfolio / GitHub -->
-            <div class="app-form-group">
-              <label class="app-form-label" for="app-portfolio">
-                Portfolio / Behance / GitHub URL
-              </label>
-              <input type="url" id="app-portfolio" class="app-input" placeholder="https://dribbble.com/yourhandle or github.com/..." />
+            <!-- Portfolio / Work Samples (Link or PDF File Upload) -->
+            <div class="app-form-group app-form-group--full">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
+                <label class="app-form-label" style="margin-bottom: 0;">
+                  Portfolio / Work Samples
+                </label>
+                <div class="file-source-toggle" style="display: inline-flex; background: rgba(255,255,255,0.06); padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+                  <button type="button" id="portfolio-mode-link" class="file-tab-btn active" style="padding: 3px 10px; font-size: 0.72rem; border-radius: 4px; border: none; background: #e67e22; color: #fff; cursor: pointer; font-weight: 600;">
+                    🌐 Link / URL
+                  </button>
+                  <button type="button" id="portfolio-mode-file" class="file-tab-btn" style="padding: 3px 10px; font-size: 0.72rem; border-radius: 4px; border: none; background: transparent; color: #94a3b8; cursor: pointer; font-weight: 500;">
+                    📄 Upload PDF File
+                  </button>
+                </div>
+              </div>
+
+              <!-- Option A: Online URL -->
+              <div id="portfolio-link-view">
+                <input type="url" id="app-portfolio" class="app-input" placeholder="Paste Behance, Dribbble, GitHub, Figma, or Google Drive URL" />
+              </div>
+
+              <!-- Option B: PDF File Upload Dropzone -->
+              <div id="portfolio-file-view" style="display: none;">
+                <div class="pdf-dropzone" id="portfolio-dropzone" style="border: 2px dashed rgba(230, 126, 34, 0.4); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; background: rgba(230, 126, 34, 0.03); cursor: pointer; transition: all 0.2s ease;">
+                  <input type="file" id="app-portfolio-file" accept=".pdf,application/pdf" style="display: none;" />
+                  <div id="portfolio-dropzone-prompt">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">📄</div>
+                    <div style="font-size: 0.86rem; font-weight: 600; color: #fff;">Click to select or drag &amp; drop Portfolio PDF</div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.2rem;">PDF document up to 10MB</div>
+                  </div>
+                  <div id="portfolio-selected-card" style="display: none; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.06); padding: 0.65rem 0.95rem; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem; text-align: left; overflow: hidden;">
+                      <span style="font-size: 1.4rem;">📑</span>
+                      <div>
+                        <div id="portfolio-filename-label" style="font-size: 0.84rem; font-weight: 600; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 280px;">portfolio.pdf</div>
+                        <div id="portfolio-filesize-label" style="font-size: 0.74rem; color: #4ade80;">Ready to attach</div>
+                      </div>
+                    </div>
+                    <button type="button" id="portfolio-clear-file-btn" style="background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); border-radius: 5px; padding: 4px 10px; font-size: 0.75rem; cursor: pointer;">Remove ✕</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Experience Level -->
@@ -786,13 +822,49 @@
               </select>
             </div>
 
-            <!-- Resume Link / File -->
+            <!-- Resume / CV (PDF File Upload or Cloud Link) -->
             <div class="app-form-group app-form-group--full">
-              <label class="app-form-label" for="app-resume">
-                Resume / CV Link (Google Drive / Dropbox) <span class="req">*</span>
-              </label>
-              <input type="url" id="app-resume" class="app-input" placeholder="Paste viewable Google Drive / OneDrive link with permission set to anyone with link" required />
-              <small style="color: var(--mist); font-size: 0.78rem; margin-top: 0.25rem;">Ensure link access is set to 'Anyone with the link can view'.</small>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; flex-wrap: wrap; gap: 0.5rem;">
+                <label class="app-form-label" style="margin-bottom: 0;">
+                  Resume / CV <span class="req">*</span>
+                </label>
+                <div class="file-source-toggle" style="display: inline-flex; background: rgba(255,255,255,0.06); padding: 2px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1);">
+                  <button type="button" id="resume-mode-file" class="file-tab-btn active" style="padding: 3px 10px; font-size: 0.72rem; border-radius: 4px; border: none; background: #e67e22; color: #fff; cursor: pointer; font-weight: 600;">
+                    📄 Upload PDF File
+                  </button>
+                  <button type="button" id="resume-mode-link" class="file-tab-btn" style="padding: 3px 10px; font-size: 0.72rem; border-radius: 4px; border: none; background: transparent; color: #94a3b8; cursor: pointer; font-weight: 500;">
+                    🌐 Cloud Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Option A: PDF File Upload Dropzone (Default) -->
+              <div id="resume-file-view">
+                <div class="pdf-dropzone" id="resume-dropzone" style="border: 2px dashed rgba(230, 126, 34, 0.4); border-radius: 10px; padding: 1.25rem 1rem; text-align: center; background: rgba(230, 126, 34, 0.03); cursor: pointer; transition: all 0.2s ease;">
+                  <input type="file" id="app-resume-file" accept=".pdf,application/pdf" style="display: none;" />
+                  <div id="resume-dropzone-prompt">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.35rem;">📄</div>
+                    <div style="font-size: 0.86rem; font-weight: 600; color: #fff;">Click to select or drag &amp; drop Resume PDF <span class="req">*</span></div>
+                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.2rem;">PDF document up to 10MB</div>
+                  </div>
+                  <div id="resume-selected-card" style="display: none; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.06); padding: 0.65rem 0.95rem; border-radius: 8px;">
+                    <div style="display: flex; align-items: center; gap: 0.6rem; text-align: left; overflow: hidden;">
+                      <span style="font-size: 1.4rem;">📑</span>
+                      <div>
+                        <div id="resume-filename-label" style="font-size: 0.84rem; font-weight: 600; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 280px;">resume.pdf</div>
+                        <div id="resume-filesize-label" style="font-size: 0.74rem; color: #4ade80;">Ready to attach</div>
+                      </div>
+                    </div>
+                    <button type="button" id="resume-clear-file-btn" style="background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.4); border-radius: 5px; padding: 4px 10px; font-size: 0.75rem; cursor: pointer;">Remove ✕</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Option B: Online Link Input -->
+              <div id="resume-link-view" style="display: none;">
+                <input type="url" id="app-resume" class="app-input" placeholder="Paste viewable Google Drive / OneDrive / Dropbox link" />
+                <small style="color: var(--mist); font-size: 0.78rem; margin-top: 0.25rem; display: block;">Ensure link access is set to 'Anyone with the link can view'.</small>
+              </div>
             </div>
 
             <!-- Internship-specific extra fields (conditionally revealed) -->
@@ -1076,6 +1148,228 @@
       }
     });
 
+    // ═══════════════════════════════════════════════════════════════
+    //  FILE PICKER & MODE TOGGLES (Portfolio & Resume)
+    // ═══════════════════════════════════════════════════════════════
+    let portfolioMode = 'link'; // 'link' | 'file'
+    let portfolioPdfData = null; // { name, size, dataUrl }
+
+    let resumeMode = 'file'; // 'file' | 'link'
+    let resumePdfData = null; // { name, size, dataUrl }
+
+    // Portfolio Toggle
+    const portTabLink = document.getElementById('portfolio-mode-link');
+    const portTabFile = document.getElementById('portfolio-mode-file');
+    const portLinkView = document.getElementById('portfolio-link-view');
+    const portFileView = document.getElementById('portfolio-file-view');
+    const portDropzone = document.getElementById('portfolio-dropzone');
+    const portFileInput = document.getElementById('app-portfolio-file');
+    const portPrompt = document.getElementById('portfolio-dropzone-prompt');
+    const portCard = document.getElementById('portfolio-selected-card');
+    const portFilename = document.getElementById('portfolio-filename-label');
+    const portFilesize = document.getElementById('portfolio-filesize-label');
+    const portClearBtn = document.getElementById('portfolio-clear-file-btn');
+
+    function setPortfolioMode(mode) {
+      portfolioMode = mode;
+      if (mode === 'link') {
+        portTabLink.style.background = '#e67e22';
+        portTabLink.style.color = '#fff';
+        portTabFile.style.background = 'transparent';
+        portTabFile.style.color = '#94a3b8';
+        portLinkView.style.display = 'block';
+        portFileView.style.display = 'none';
+      } else {
+        portTabFile.style.background = '#e67e22';
+        portTabFile.style.color = '#fff';
+        portTabLink.style.background = 'transparent';
+        portTabLink.style.color = '#94a3b8';
+        portLinkView.style.display = 'none';
+        portFileView.style.display = 'block';
+      }
+    }
+
+    portTabLink.addEventListener('click', () => setPortfolioMode('link'));
+    portTabFile.addEventListener('click', () => setPortfolioMode('file'));
+
+    portDropzone.addEventListener('click', (e) => {
+      if (e.target !== portClearBtn && !portClearBtn.contains(e.target)) {
+        portFileInput.click();
+      }
+    });
+
+    ['dragenter', 'dragover'].forEach(name => {
+      portDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        portDropzone.style.borderColor = '#e67e22';
+        portDropzone.style.background = 'rgba(230,126,34,0.08)';
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(name => {
+      portDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        portDropzone.style.borderColor = 'rgba(230,126,34,0.4)';
+        portDropzone.style.background = 'rgba(230,126,34,0.03)';
+      });
+    });
+
+    portDropzone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files && files[0]) handlePortfolioFile(files[0]);
+    });
+
+    portFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handlePortfolioFile(e.target.files[0]);
+    });
+
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function handlePortfolioFile(file) {
+      if (!file.name.toLowerCase().endsWith('.pdf') && file.type !== 'application/pdf') {
+        alert('Please select a valid PDF file for your portfolio.');
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Portfolio PDF file size exceeds 10MB limit.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        portfolioPdfData = {
+          name: file.name,
+          size: file.size,
+          formattedSize: formatFileSize(file.size),
+          dataUrl: event.target.result
+        };
+        portFilename.textContent = file.name;
+        portFilesize.textContent = formatFileSize(file.size) + ' • PDF Attached';
+        portPrompt.style.display = 'none';
+        portCard.style.display = 'flex';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    portClearBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      portfolioPdfData = null;
+      portFileInput.value = '';
+      portPrompt.style.display = 'block';
+      portCard.style.display = 'none';
+    });
+
+    // Resume Toggle
+    const resumeTabFile = document.getElementById('resume-mode-file');
+    const resumeTabLink = document.getElementById('resume-mode-link');
+    const resumeFileView = document.getElementById('resume-file-view');
+    const resumeLinkView = document.getElementById('resume-link-view');
+    const resumeDropzone = document.getElementById('resume-dropzone');
+    const resumeFileInput = document.getElementById('app-resume-file');
+    const resumePrompt = document.getElementById('resume-dropzone-prompt');
+    const resumeCard = document.getElementById('resume-selected-card');
+    const resumeFilename = document.getElementById('resume-filename-label');
+    const resumeFilesize = document.getElementById('resume-filesize-label');
+    const resumeClearBtn = document.getElementById('resume-clear-file-btn');
+    const resumeLinkInput = document.getElementById('app-resume');
+
+    function setResumeMode(mode) {
+      resumeMode = mode;
+      if (mode === 'file') {
+        resumeTabFile.style.background = '#e67e22';
+        resumeTabFile.style.color = '#fff';
+        resumeTabLink.style.background = 'transparent';
+        resumeTabLink.style.color = '#94a3b8';
+        resumeFileView.style.display = 'block';
+        resumeLinkView.style.display = 'none';
+        resumeLinkInput.removeAttribute('required');
+      } else {
+        resumeTabLink.style.background = '#e67e22';
+        resumeTabLink.style.color = '#fff';
+        resumeTabFile.style.background = 'transparent';
+        resumeTabFile.style.color = '#94a3b8';
+        resumeFileView.style.display = 'none';
+        resumeLinkView.style.display = 'block';
+        resumeLinkInput.setAttribute('required', 'true');
+      }
+    }
+
+    resumeTabFile.addEventListener('click', () => setResumeMode('file'));
+    resumeTabLink.addEventListener('click', () => setResumeMode('link'));
+
+    resumeDropzone.addEventListener('click', (e) => {
+      if (e.target !== resumeClearBtn && !resumeClearBtn.contains(e.target)) {
+        resumeFileInput.click();
+      }
+    });
+
+    ['dragenter', 'dragover'].forEach(name => {
+      resumeDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropzone.style.borderColor = '#e67e22';
+        resumeDropzone.style.background = 'rgba(230,126,34,0.08)';
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(name => {
+      resumeDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        resumeDropzone.style.borderColor = 'rgba(230,126,34,0.4)';
+        resumeDropzone.style.background = 'rgba(230,126,34,0.03)';
+      });
+    });
+
+    resumeDropzone.addEventListener('drop', (e) => {
+      const files = e.dataTransfer.files;
+      if (files && files[0]) handleResumeFile(files[0]);
+    });
+
+    resumeFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handleResumeFile(e.target.files[0]);
+    });
+
+    function handleResumeFile(file) {
+      if (!file.name.toLowerCase().endsWith('.pdf') && file.type !== 'application/pdf') {
+        alert('Please select a valid PDF file for your resume.');
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        alert('Resume PDF file size exceeds 10MB limit.');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        resumePdfData = {
+          name: file.name,
+          size: file.size,
+          formattedSize: formatFileSize(file.size),
+          dataUrl: event.target.result
+        };
+        resumeFilename.textContent = file.name;
+        resumeFilesize.textContent = formatFileSize(file.size) + ' • PDF Attached';
+        resumePrompt.style.display = 'none';
+        resumeCard.style.display = 'flex';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    resumeClearBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resumePdfData = null;
+      resumeFileInput.value = '';
+      resumePrompt.style.display = 'block';
+      resumeCard.style.display = 'none';
+    });
+
     // Form submission
     appForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -1086,8 +1380,26 @@
         return;
       }
 
+      // Validate Resume requirement
+      if (resumeMode === 'file' && !resumePdfData) {
+        alert('Please attach your Resume PDF or switch to Cloud Link.');
+        return;
+      }
+      if (resumeMode === 'link' && !resumeLinkInput.value.trim()) {
+        alert('Please enter your Resume / CV link.');
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Submitting Profile... ⏳';
+
+      const portfolioVal = portfolioMode === 'file' 
+        ? (portfolioPdfData ? portfolioPdfData.name : '') 
+        : document.getElementById('app-portfolio').value.trim();
+
+      const resumeVal = resumeMode === 'file'
+        ? (resumePdfData ? resumePdfData.name : '')
+        : resumeLinkInput.value.trim();
 
       const candidateData = {
         applicationId: 'APP-' + Math.floor(100000 + Math.random() * 900000),
@@ -1100,9 +1412,11 @@
         phone: document.getElementById('app-phone').value.trim(),
         city: document.getElementById('app-city').value.trim(),
         linkedin: document.getElementById('app-linkedin').value.trim(),
-        portfolio: document.getElementById('app-portfolio').value.trim(),
+        portfolio: portfolioVal,
+        portfolioPdf: portfolioPdfData,
         experience: document.getElementById('app-experience').value,
-        resume: document.getElementById('app-resume').value.trim(),
+        resume: resumeVal,
+        resumePdf: resumePdfData,
         cover: document.getElementById('app-cover').value.trim(),
         whyTaskas: document.getElementById('app-why').value.trim(),
         academic: isInternshipRole(positionSelect.value) ? {
@@ -1138,6 +1452,14 @@
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Submit Application 🚀';
       appForm.reset();
+
+      // Reset file attachments
+      portfolioPdfData = null;
+      resumePdfData = null;
+      portCard.style.display = 'none';
+      portPrompt.style.display = 'block';
+      resumeCard.style.display = 'none';
+      resumePrompt.style.display = 'block';
 
       // Show Success view
       formView.style.display = 'none';
