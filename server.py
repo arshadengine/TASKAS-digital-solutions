@@ -499,6 +499,13 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(leads_list).encode('utf-8'))
         else:
+            # Clean URL support: automatically map /about -> /about.html, /careers -> /careers.html
+            clean_path = path.lstrip('/')
+            if clean_path and not os.path.splitext(clean_path)[1]:
+                html_candidate = clean_path + '.html'
+                if os.path.isfile(html_candidate):
+                    query = f"?{parsed_url.query}" if parsed_url.query else ""
+                    self.path = f"/{html_candidate}{query}"
             super().do_GET()
 
     def do_OPTIONS(self):
