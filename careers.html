@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Build your career at TASKAS. We are looking for creative thinkers, developers, designers, and marketers in Pune / Hybrid. Explore open positions and internships." />
+  <meta name="keywords" content="TASKAS careers, tech jobs Pune, web development internships, UI UX designer job Pune, digital marketing executive hiring, business development executive Pune" />
+  <meta property="og:title" content="Careers & Internships — TASKAS Technologies" />
+  <meta property="og:description" content="Create. Innovate. Grow with us. Explore open positions in design, tech, marketing, and business development." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.taskas.tech/careers.html" />
+  <meta property="og:image" content="https://www.taskas.tech/hero-bg.png" />
+  <title>Careers & Internships — TASKAS</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <script>
+    (function() {
+      const saved = localStorage.getItem('taskas-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? (saved === 'dark') : prefersDark;
+      if (!isDark) {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="careers.css" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- Google for Jobs Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.taskas.tech/#organization",
+        "name": "TASKAS Technologies",
+        "url": "https://www.taskas.tech/",
+        "logo": "https://www.taskas.tech/images/favicon.svg"
+      },
+      {
+        "@type": "JobPosting",
+        "title": "Graphic Designer",
+        "description": "Create social media posts, banners, advertisements, and marketing materials for TASKAS and client projects. Expertise in Figma, Photoshop, and visual design.",
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "TASKAS",
+          "value": "JOB-GD-2026"
+        },
+        "datePosted": "2026-09-01",
+        "employmentType": "FULL_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "TASKAS Technologies",
+          "sameAs": "https://www.taskas.tech"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      {
+        "@type": "JobPosting",
+        "title": "Business Development Executive",
+        "description": "Identify new opportunities, research prospective clients, prepare proposals, and build long-term relationships.",
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "TASKAS",
+          "value": "JOB-BDE-2026"
+        },
+        "datePosted": "2026-09-01",
+        "employmentType": "FULL_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "TASKAS Technologies",
+          "sameAs": "https://www.taskas.tech"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        }
+      },
+      {
+        "@type": "JobPosting",
+        "title": "Digital Marketing Executive",
+        "description": "Execute digital marketing campaigns, manage social platforms, perform SEO, and optimize acquisition funnels.",
+        "identifier": {
+          "@type": "PropertyValue",
+          "name": "TASKAS",
+          "value": "JOB-DME-2026"
+        },
+        "datePosted": "2026-09-01",
+        "employmentType": "FULL_TIME",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "TASKAS Technologies",
+          "sameAs": "https://www.taskas.tech"
+        },
+        "jobLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pune",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="careers-page">
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header class="nav-header scrolled" id="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="index.html" class="nav-logo" id="nav-logo" aria-label="TASKAS Home">
+        <svg class="logo-icon" viewBox="0 0 100 100" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 8px;">
+          <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#logoBlueGrad)" />
+          <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#logoOrangeGrad)" />
+          <defs>
+            <linearGradient id="logoBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+              <stop offset="0%" stop-color="#4a5f78" />
+              <stop offset="100%" stop-color="#1f2d3d" />
+            </linearGradient>
+            <linearGradient id="logoOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+              <stop offset="0%" stop-color="#e67e22" />
+              <stop offset="100%" stop-color="#f39c12" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">TASKAS</span>
+        <span class="nav-logo-dot" aria-hidden="true">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="careers.html" class="nav-link active">Careers</a></li>
+        <li><a href="index.html#stats" class="nav-link">Why Us</a></li>
+        <li><a href="index.html#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="index.html#contact" class="nav-link nav-link--cta">Initiate</a></li>
+      </ul>
+      
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <!-- Mobile drawer -->
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <ul role="list">
+        <li><a href="index.html#services" class="nav-mobile-link">Services</a></li>
+        <li><a href="about.html" class="nav-mobile-link">About</a></li>
+        <li><a href="index.html#projects" class="nav-mobile-link">Projects</a></li>
+        <li><a href="pricing.html" class="nav-mobile-link">Pricing</a></li>
+        <li><a href="careers.html" class="nav-mobile-link active">Careers</a></li>
+        <li><a href="index.html#stats" class="nav-mobile-link">Why Us</a></li>
+        <li><a href="index.html#testimonials" class="nav-mobile-link">Reviews</a></li>
+        <li><a href="index.html#contact" class="nav-mobile-link nav-mobile-link--cta">Initiate Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  1. CAREERS HERO                            -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="careers-hero" id="careers-hero">
+      <div class="careers-hero-atmosphere" aria-hidden="true">
+        <div class="careers-glow-orb"></div>
+      </div>
+      
+      <div class="careers-hero-content">
+        <div class="careers-status-badge">
+          <span class="status-dot" style="background: var(--amber);"></span>
+          WE ARE ACTIVELY HIRING
+        </div>
+        <h1 class="careers-hero-title">Build Your Career at TASKAS</h1>
+        <p class="careers-hero-tagline">Create. Innovate. Grow with us.</p>
+        <p class="careers-hero-desc">
+          TASKAS is building a team of creative thinkers, technology enthusiasts, and problem solvers who want to turn ideas into meaningful digital solutions. Whether you're an experienced professional or just starting your journey, there's a place for you to learn, contribute, and grow with us.
+        </p>
+        <div class="careers-hero-actions">
+          <a href="#open-positions" class="btn btn-primary">
+            View Open Positions <span>↓</span>
+          </a>
+          <button class="btn btn-ghost open-apply-modal-btn" data-role="General Application" data-type="full-time">
+            Send Your Resume
+          </button>
+        </div>
+        
+        <div class="careers-perks-strip">
+          <div class="perk-pill">
+            <span class="perk-pill-icon">📍</span> Pune / Hybrid Office
+          </div>
+          <div class="perk-pill">
+            <span class="perk-pill-icon">⚡</span> High-Growth Mentorship
+          </div>
+          <div class="perk-pill">
+            <span class="perk-pill-icon">🚀</span> Direct Impact on Production
+          </div>
+          <div class="perk-pill">
+            <span class="perk-pill-icon">🤝</span> Multidisciplinary Culture
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  2. WHY JOIN TASKAS?                        -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="why-join" id="why-join">
+      <div class="section-container">
+        <div class="why-join-header">
+          <span class="section-label">Why Join TASKAS?</span>
+          <h2 class="services-title" style="margin-left: auto; margin-right: auto;">More Than Just a Job</h2>
+          <p class="services-subtitle" style="margin-left: auto; margin-right: auto; max-width: 680px;">
+            At TASKAS, you'll get the opportunity to work on real projects, collaborate with a multidisciplinary team, and take ownership of your work.
+          </p>
+        </div>
+
+        <div class="why-join-grid">
+          <!-- Pillar 1 -->
+          <div class="why-card">
+            <div class="why-card-icon">🚀</div>
+            <h3 class="why-card-title">Real-World Experience</h3>
+            <p class="why-card-desc">Work on projects that solve actual business and user problems for scaling brands and startups.</p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="why-card">
+            <div class="why-card-icon">💡</div>
+            <h3 class="why-card-title">Learn &amp; Experiment</h3>
+            <p class="why-card-desc">Explore modern tools, modern technologies, creative design strategies, and intelligent automation approaches.</p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="why-card">
+            <div class="why-card-icon">🤝</div>
+            <h3 class="why-card-title">Collaborative Culture</h3>
+            <p class="why-card-desc">Work alongside developers, designers, marketers, automation experts, and business leaders with zero silos.</p>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="why-card">
+            <div class="why-card-icon">📈</div>
+            <h3 class="why-card-title">Grow With Us</h3>
+            <p class="why-card-desc">As TASKAS grows, you'll have clear pathways and opportunities to take on greater responsibilities and leadership.</p>
+          </div>
+
+          <!-- Pillar 5 -->
+          <div class="why-card">
+            <div class="why-card-icon">🎯</div>
+            <h3 class="why-card-title">Make an Impact</h3>
+            <p class="why-card-desc">Your ideas aren't just suggestions — they directly shape and become part of what TASKAS builds and ships.</p>
+          </div>
+
+          <!-- Bonus Pillar -->
+          <div class="why-card" style="background: rgba(var(--amber-rgb), 0.03); border-color: rgba(var(--amber-rgb), 0.2);">
+            <div class="why-card-icon">🌟</div>
+            <h3 class="why-card-title">Ownership &amp; Autonomy</h3>
+            <p class="why-card-desc">We respect initiative. You are encouraged to propose innovative features, refine architectures, and lead solutions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  3. OPEN POSITIONS                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="open-positions" id="open-positions">
+      <div class="section-container">
+        <div class="positions-header">
+          <span class="section-label">Join Our Core Team</span>
+          <h2 class="services-title" style="text-align: left; margin-left: 0;">Open Positions</h2>
+          <p class="services-subtitle" style="text-align: left; margin-left: 0; max-width: 720px;">
+            We are hiring passionate talent across design, business growth, and digital marketing. Both freshers and experienced candidates are encouraged to apply.
+          </p>
+        </div>
+
+        <div class="positions-container">
+          <!-- POSITION 1: Graphic Designer -->
+          <article class="job-card" id="job-graphic-designer">
+            <div class="job-summary">
+              <div class="job-title-group">
+                <h3 class="job-title">Graphic Designer</h3>
+                <div class="job-meta-badges">
+                  <span class="job-badge job-badge--dept">🎨 Design &amp; Creative</span>
+                  <span class="job-badge job-badge--type">Full-time</span>
+                  <span class="job-badge">📍 Pune / Hybrid</span>
+                  <span class="job-badge">🎓 Freshers &amp; Experienced</span>
+                </div>
+              </div>
+              <div class="job-summary-actions">
+                <button class="btn btn-primary open-apply-modal-btn" data-role="Graphic Designer" data-type="full-time">
+                  Apply for this Position →
+                </button>
+              </div>
+            </div>
+
+            <div class="job-details-body">
+              <div>
+                <h4 class="job-section-title">About the Role</h4>
+                <p class="job-role-intro">
+                  We're looking for a creative <strong>Graphic Designer</strong> who can translate ideas into visually compelling designs across TASKAS's digital presence and client projects.
+                </p>
+
+                <h4 class="job-section-title">Key Responsibilities</h4>
+                <ul class="job-list">
+                  <li>Create social media posts, banners, advertisements, and promotional creatives.</li>
+                  <li>Design graphics for websites, presentations, campaigns, and marketing materials.</li>
+                  <li>Work with the marketing and UI/UX teams to maintain visual consistency.</li>
+                  <li>Develop creative concepts based on project requirements.</li>
+                  <li>Prepare designs for different digital platforms and aspect ratios.</li>
+                  <li>Stay updated with current design trends, typography, and visual aesthetics.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="job-section-title">Requirements</h4>
+                <ul class="job-list">
+                  <li>Strong understanding of typography, composition, spacing, and visual hierarchy.</li>
+                  <li>Experience with tools such as <strong>Figma, Adobe Photoshop, Illustrator, Canva</strong>, or equivalent.</li>
+                  <li>Good creative and communication skills.</li>
+                  <li>Ability to understand a brief and turn it into a finished design.</li>
+                  <li>Portfolio demonstrating your design skills and visual craft.</li>
+                </ul>
+
+                <h4 class="job-section-title" style="margin-top: 1.5rem;">Good to Have</h4>
+                <ul class="job-list">
+                  <li>Basic knowledge of UI/UX principles.</li>
+                  <li>Motion graphics or video editing skills.</li>
+                  <li>Experience creating social-media content and carousels.</li>
+                  <li>Understanding of branding systems and visual identity guidelines.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- POSITION 2: Business Development Executive -->
+          <article class="job-card" id="job-business-development-executive">
+            <div class="job-summary">
+              <div class="job-title-group">
+                <h3 class="job-title">Business Development Executive</h3>
+                <div class="job-meta-badges">
+                  <span class="job-badge job-badge--dept">📈 Business Development &amp; Growth</span>
+                  <span class="job-badge job-badge--type">Full-time</span>
+                  <span class="job-badge">📍 Pune / Hybrid</span>
+                  <span class="job-badge">🎓 Freshers &amp; Experienced</span>
+                </div>
+              </div>
+              <div class="job-summary-actions">
+                <button class="btn btn-primary open-apply-modal-btn" data-role="Business Development Executive" data-type="full-time">
+                  Apply for this Position →
+                </button>
+              </div>
+            </div>
+
+            <div class="job-details-body">
+              <div>
+                <h4 class="job-section-title">About the Role</h4>
+                <p class="job-role-intro">
+                  We're looking for a motivated <strong>Business Development Executive</strong> who can help TASKAS identify new opportunities, connect with potential clients, and build long-term business relationships.
+                </p>
+
+                <h4 class="job-section-title">Key Responsibilities</h4>
+                <ul class="job-list">
+                  <li>Identify and research potential clients and business opportunities across India and globally.</li>
+                  <li>Generate and qualify outbound leads via LinkedIn, email, and discovery calls.</li>
+                  <li>Reach out to prospective clients through professional communication channels.</li>
+                  <li>Understand client requirements and clearly articulate them to the technical &amp; design team.</li>
+                  <li>Prepare proposals and coordinate with project leads on timelines and budgets.</li>
+                  <li>Maintain strong relationships with existing and prospective clients.</li>
+                  <li>Follow up with inbound leads and diligently track the CRM sales pipeline.</li>
+                  <li>Contribute ideas to improve TASKAS's overarching business growth strategy.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="job-section-title">Requirements</h4>
+                <ul class="job-list">
+                  <li>Strong verbal and written communication and interpersonal skills.</li>
+                  <li>High confidence in pitching and communicating with decision-makers and founders.</li>
+                  <li>Good understanding of basic sales and business development concepts.</li>
+                  <li>Ability to research and identify high-value market opportunities.</li>
+                  <li>Strong follow-up discipline and organizational skills.</li>
+                  <li>Willingness to learn, adapt, and take proactive initiative.</li>
+                </ul>
+
+                <h4 class="job-section-title" style="margin-top: 1.5rem;">Good to Have</h4>
+                <ul class="job-list">
+                  <li>Previous sales or client-facing business development experience.</li>
+                  <li>Knowledge of digital services such as websites, UI/UX, software, or AI automation.</li>
+                  <li>CRM workflow experience (HubSpot, Notion, or spreadsheets).</li>
+                  <li>Experience in B2B service sales.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- POSITION 3: Digital Marketing Executive -->
+          <article class="job-card" id="job-digital-marketing-executive">
+            <div class="job-summary">
+              <div class="job-title-group">
+                <h3 class="job-title">Digital Marketing Executive</h3>
+                <div class="job-meta-badges">
+                  <span class="job-badge job-badge--dept">🚀 Marketing &amp; Growth</span>
+                  <span class="job-badge job-badge--type">Full-time</span>
+                  <span class="job-badge">📍 Pune / Hybrid</span>
+                  <span class="job-badge">🎓 Freshers &amp; Experienced</span>
+                </div>
+              </div>
+              <div class="job-summary-actions">
+                <button class="btn btn-primary open-apply-modal-btn" data-role="Digital Marketing Executive" data-type="full-time">
+                  Apply for this Position →
+                </button>
+              </div>
+            </div>
+
+            <div class="job-details-body">
+              <div>
+                <h4 class="job-section-title">About the Role</h4>
+                <p class="job-role-intro">
+                  We're looking for a driven <strong>Digital Marketing Executive</strong> who can help strengthen the TASKAS brand, increase digital visibility, and build meaningful engagement across online platforms.
+                </p>
+
+                <h4 class="job-section-title">Key Responsibilities</h4>
+                <ul class="job-list">
+                  <li>Plan and execute organic and performance digital marketing campaigns.</li>
+                  <li>Manage social media platforms and create proactive content calendars.</li>
+                  <li>Create and coordinate engaging social media copy and visual stories.</li>
+                  <li>Conduct keyword and competitor research to capture search volume.</li>
+                  <li>Assist with on-page and technical SEO activities to rank client &amp; internal assets.</li>
+                  <li>Monitor website analytics and campaign traffic performance.</li>
+                  <li>Analyze engagement, conversion, and marketing ROI metrics.</li>
+                  <li>Support paid advertising campaigns on Meta Ads and Google Ads when required.</li>
+                  <li>Work closely with the design and business development teams to nurture leads.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="job-section-title">Requirements</h4>
+                <ul class="job-list">
+                  <li>Solid understanding of digital marketing fundamentals and funnels.</li>
+                  <li>In-depth knowledge of social media platforms (LinkedIn, Instagram, X).</li>
+                  <li>Basic understanding of SEO principles, keywords, and meta tags.</li>
+                  <li>Good communication and persuasive copywriting skills.</li>
+                  <li>Creative thinking and willingness to test and experiment with content formats.</li>
+                  <li>Ability to analyze basic marketing and traffic data.</li>
+                </ul>
+
+                <h4 class="job-section-title" style="margin-top: 1.5rem;">Good to Have</h4>
+                <ul class="job-list">
+                  <li>Familiarity with Google Analytics, Google Search Console, or SEMrush.</li>
+                  <li>Hands-on Meta Ads Manager experience.</li>
+                  <li>Experience with SEO auditing tools.</li>
+                  <li>Content writing or technical blogging experience.</li>
+                  <li>Basic knowledge of email marketing tools and automation funnels.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  4. INTERNSHIP OPPORTUNITIES                -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="internships" id="internships">
+      <div class="section-container">
+        <div class="internships-header">
+          <span class="section-label">Start Your Journey With TASKAS</span>
+          <h2 class="services-title" style="margin-left: auto; margin-right: auto;">Internship Opportunities</h2>
+          <p class="services-subtitle" style="margin-left: auto; margin-right: auto; max-width: 720px;">
+            Our internship program is designed for students and aspiring professionals who want to gain practical experience by working on real projects alongside experienced mentors.
+          </p>
+        </div>
+
+        <div class="internships-grid">
+          <!-- 1. Software Development Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">💻</div>
+              <h3 class="intern-card-title">Software Development Intern</h3>
+              <div class="intern-card-dept">Engineering</div>
+              <p class="intern-card-desc">Work with the development team to build and improve robust software solutions and backend architectures.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Software Development Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Frontend Development Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">🌐</div>
+              <h3 class="intern-card-title">Frontend Development Intern</h3>
+              <div class="intern-card-dept">Web Technologies</div>
+              <p class="intern-card-desc">Create responsive, animated, and interactive web interfaces using modern CSS, JavaScript, and WebGL.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Frontend Development Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 3. UI/UX Design Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">🎨</div>
+              <h3 class="intern-card-title">UI/UX Design Intern</h3>
+              <div class="intern-card-dept">Product Design</div>
+              <p class="intern-card-desc">Assist in wireframing, prototyping, and designing intuitive and engaging digital experiences in Figma.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="UI/UX Design Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 4. AI/ML Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">🤖</div>
+              <h3 class="intern-card-title">AI/ML Intern</h3>
+              <div class="intern-card-dept">Emerging Tech &amp; AI</div>
+              <p class="intern-card-desc">Explore artificial intelligence, LLM agent integration, prompting pipelines, and machine-learning applications.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="AI/ML Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 5. Automation Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">⚡</div>
+              <h3 class="intern-card-title">Automation Intern</h3>
+              <div class="intern-card-dept">Workflows &amp; Operations</div>
+              <p class="intern-card-desc">Build and explore workflow automation, webhooks, API connectors, and productivity systems for businesses.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Automation Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 6. Digital Marketing Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">📱</div>
+              <h3 class="intern-card-title">Digital Marketing Intern</h3>
+              <div class="intern-card-dept">Growth &amp; Media</div>
+              <p class="intern-card-desc">Support content creation, search engine optimization, social media distribution, and digital growth campaigns.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Digital Marketing Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 7. Business Development Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">📊</div>
+              <h3 class="intern-card-title">Business Development Intern</h3>
+              <div class="intern-card-dept">Sales &amp; Partnerships</div>
+              <p class="intern-card-desc">Assist with qualified lead generation, market research, industry outreach, and client communication.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Business Development Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 8. Graphic Design Intern -->
+          <div class="intern-card">
+            <div>
+              <div class="intern-card-icon">🖌️</div>
+              <h3 class="intern-card-title">Graphic Design Intern</h3>
+              <div class="intern-card-dept">Creative &amp; Visuals</div>
+              <p class="intern-card-desc">Create high-quality visual content for branding, social media, advertisements, and digital client projects.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Graphic Design Intern" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+
+          <!-- 9. Open Role / General Intern -->
+          <div class="intern-card" style="background: rgba(var(--amber-rgb), 0.02); border-style: dashed;">
+            <div>
+              <div class="intern-card-icon">🚀</div>
+              <h3 class="intern-card-title">Open Application</h3>
+              <div class="intern-card-dept">Multidisciplinary</div>
+              <p class="intern-card-desc">Have a distinctive skill in 3D WebGL, video editing, or research? Pitch your own role to our team.</p>
+            </div>
+            <div>
+              <div class="intern-card-motto">Learn • Create • Build</div>
+              <button class="intern-card-btn open-apply-modal-btn" data-role="Open Application / General" data-type="internship">
+                <span>View Role &amp; Apply</span> ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!--  5. FINAL CTA                               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <section class="careers-cta">
+      <div class="section-container">
+        <div class="careers-cta-box">
+          <h2 class="careers-cta-title">Your next opportunity could start here.</h2>
+          <p class="careers-cta-desc">
+            We're always looking for people who are curious, driven, creative, and ready to build something meaningful. Think you can contribute to TASKAS?
+          </p>
+          <button class="btn btn-primary open-apply-modal-btn" data-role="General Application" data-type="full-time" style="font-size: 1rem; padding: 0.9rem 2.2rem;">
+            Explore Opportunities &amp; Apply ➔
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  6. APPLICATION MODAL & SUCCESS SCREEN      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="app-modal" id="apply-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="app-modal-overlay" id="modal-overlay"></div>
+    <div class="app-modal-dialog">
+      <button class="app-modal-close" id="modal-close-btn" aria-label="Close application modal">&times;</button>
+      
+      <!-- FORM VIEW -->
+      <div id="modal-form-view">
+        <div class="app-modal-header">
+          <span class="app-modal-badge">JOIN THE TASKAS TEAM</span>
+          <h2 class="app-modal-title" id="modal-title">Join TASKAS</h2>
+          <p class="app-modal-subtitle">Submit your details below. Our team reviews applications weekly.</p>
+        </div>
+
+        <form id="career-application-form">
+          <div class="app-form-grid">
+            
+            <!-- Position Applying For -->
+            <div class="app-form-group app-form-group--full">
+              <label class="app-form-label" for="app-position">
+                Position Applying For <span class="req">*</span>
+              </label>
+              <select id="app-position" class="app-select" required>
+                <optgroup label="Core Full-Time Roles">
+                  <option value="Graphic Designer">Graphic Designer (Full-Time)</option>
+                  <option value="Business Development Executive">Business Development Executive (Full-Time)</option>
+                  <option value="Digital Marketing Executive">Digital Marketing Executive (Full-Time)</option>
+                </optgroup>
+                <optgroup label="Internship Programs">
+                  <option value="Software Development Intern">Software Development Intern</option>
+                  <option value="Frontend Development Intern">Frontend Development Intern</option>
+                  <option value="UI/UX Design Intern">UI/UX Design Intern</option>
+                  <option value="AI/ML Intern">AI/ML Intern</option>
+                  <option value="Automation Intern">Automation Intern</option>
+                  <option value="Digital Marketing Intern">Digital Marketing Intern</option>
+                  <option value="Business Development Intern">Business Development Intern</option>
+                  <option value="Graphic Design Intern">Graphic Design Intern</option>
+                  <option value="Open Application / General">Open Application / General Intern</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <!-- Full Name -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-name">
+                Full Name <span class="req">*</span>
+              </label>
+              <input type="text" id="app-name" class="app-input" placeholder="e.g. Rahul Sharma" required />
+            </div>
+
+            <!-- Email Address -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-email">
+                Email Address <span class="req">*</span>
+              </label>
+              <input type="email" id="app-email" class="app-input" placeholder="rahul@example.com" required />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-phone">
+                Phone / WhatsApp Number <span class="req">*</span>
+              </label>
+              <input type="tel" id="app-phone" class="app-input" placeholder="+91 98765 43210" required />
+            </div>
+
+            <!-- City -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-city">
+                City / Location <span class="req">*</span>
+              </label>
+              <input type="text" id="app-city" class="app-input" placeholder="Pune, Maharashtra" required />
+            </div>
+
+            <!-- LinkedIn Profile -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-linkedin">
+                LinkedIn Profile URL
+              </label>
+              <input type="url" id="app-linkedin" class="app-input" placeholder="https://linkedin.com/in/username" />
+            </div>
+
+            <!-- Portfolio / GitHub -->
+            <div class="app-form-group">
+              <label class="app-form-label" for="app-portfolio">
+                Portfolio / Behance / GitHub URL
+              </label>
+              <input type="url" id="app-portfolio" class="app-input" placeholder="https://dribbble.com/yourhandle or github.com/..." />
+            </div>
+
+            <!-- Experience Level -->
+            <div class="app-form-group app-form-group--full">
+              <label class="app-form-label" for="app-experience">
+                Experience Level <span class="req">*</span>
+              </label>
+              <select id="app-experience" class="app-select" required>
+                <option value="Fresher">Fresher (Looking for first opportunity)</option>
+                <option value="0–1 Years">0–1 Years</option>
+                <option value="1–3 Years">1–3 Years</option>
+                <option value="3+ Years">3+ Years</option>
+              </select>
+            </div>
+
+            <!-- Resume Link / File -->
+            <div class="app-form-group app-form-group--full">
+              <label class="app-form-label" for="app-resume">
+                Resume / CV Link (Google Drive / Dropbox) <span class="req">*</span>
+              </label>
+              <input type="url" id="app-resume" class="app-input" placeholder="Paste viewable Google Drive / OneDrive link with permission set to anyone with link" required />
+              <small style="color: var(--mist); font-size: 0.78rem; margin-top: 0.25rem;">Ensure link access is set to 'Anyone with the link can view'.</small>
+            </div>
+
+            <!-- Internship-specific extra fields (conditionally revealed) -->
+            <div class="intern-extra-fields" id="intern-fields-box">
+              <div class="app-section-divider" style="margin-top: 0;">
+                🎓 Internship Academic Details
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-college">
+                  College / University <span class="req">*</span>
+                </label>
+                <input type="text" id="app-college" class="app-input" placeholder="e.g. Pune University / COEP" />
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-degree">
+                  Course / Degree <span class="req">*</span>
+                </label>
+                <input type="text" id="app-degree" class="app-input" placeholder="e.g. B.Tech Computer Science / BBA" />
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-year">
+                  Current Year <span class="req">*</span>
+                </label>
+                <select id="app-year" class="app-select">
+                  <option value="1st Year">1st Year</option>
+                  <option value="2nd Year">2nd Year</option>
+                  <option value="3rd Year">3rd Year</option>
+                  <option value="Final Year">Final Year</option>
+                  <option value="Recent Graduate">Recent Graduate</option>
+                </select>
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-grad-year">
+                  Expected Graduation Year <span class="req">*</span>
+                </label>
+                <input type="number" id="app-grad-year" class="app-input" placeholder="2026" min="2024" max="2030" />
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-duration">
+                  Internship Duration <span class="req">*</span>
+                </label>
+                <select id="app-duration" class="app-select">
+                  <option value="1 Month">1 Month</option>
+                  <option value="2 Months">2 Months</option>
+                  <option value="3 Months" selected>3 Months</option>
+                  <option value="6 Months">6 Months</option>
+                </select>
+              </div>
+
+              <div class="app-form-group">
+                <label class="app-form-label" for="app-start-date">
+                  Preferred Start Date <span class="req">*</span>
+                </label>
+                <input type="text" id="app-start-date" class="app-input" placeholder="Immediate / Next Month" />
+              </div>
+            </div>
+
+            <!-- Cover letter / Intro -->
+            <div class="app-form-group app-form-group--full">
+              <label class="app-form-label" for="app-cover">
+                Cover Letter / Quick Introduction
+              </label>
+              <textarea id="app-cover" class="app-textarea" placeholder="Introduce yourself, your passions, and any notable projects you've crafted..."></textarea>
+            </div>
+
+            <!-- Why join TASKAS -->
+            <div class="app-form-group app-form-group--full">
+              <label class="app-form-label" for="app-why">
+                Why do you want to join TASKAS? <span class="req">*</span>
+              </label>
+              <textarea id="app-why" class="app-textarea" placeholder="Tell us what excites you about building digital solutions and growing alongside our founders..." required></textarea>
+            </div>
+
+            <!-- Consent -->
+            <div class="app-consent-group">
+              <input type="checkbox" id="app-consent" required />
+              <label for="app-consent">
+                I confirm that the information provided is accurate and may be used by TASKAS for recruitment and evaluation purposes.
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="app-form-group app-form-group--full">
+              <button type="submit" id="submit-app-btn" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem;">
+                Submit Application 🚀
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- SUCCESS VIEW -->
+      <div id="modal-success-view" class="app-success-view">
+        <div class="app-success-icon">🎉</div>
+        <h2 class="app-success-title">Application Received!</h2>
+        <p class="app-success-desc">
+          Thank you for your interest in joining <strong>TASKAS</strong>. We've received your application and our leadership team will review your profile. If your skills and aspirations match our requirements, we'll get in touch with you shortly.
+        </p>
+        <p class="app-success-motto">
+          Good luck — and welcome to the beginning of your TASKAS journey.
+        </p>
+        <button type="button" class="btn btn-outline" id="success-back-btn">
+          Back to Careers
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FOOTER                                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg class="logo-icon" viewBox="0 0 100 100" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#logoBlueGrad)" />
+            <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#logoOrangeGrad)" />
+          </svg>
+          <span class="footer-logo-text">TASKAS</span>
+        </div>
+        <p class="footer-tagline">TASKAS Technologies</p>
+        <p style="font-size: 0.72rem; line-height: 1.5; color: var(--mist); margin: 0.75rem 0 1.25rem;">
+          Website development, UI/UX design, and AI business automation services for clients across Pune, Mumbai, Maharashtra, and India.
+        </p>
+        <a href="mailto:team@taskas.tech" class="footer-email-inline" id="footer-email-inline">team@taskas.tech</a>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <nav aria-label="Services navigation">
+            <a href="index.html#service-web" class="footer-link">Website Development</a>
+            <a href="index.html#service-ai" class="footer-link">AI Automation</a>
+            <a href="index.html#service-ui" class="footer-link">UI / UX Design</a>
+            <a href="blog.html" class="footer-link">SEO Services</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <nav aria-label="Company navigation">
+            <a href="about.html" class="footer-link">About</a>
+            <a href="pricing.html" class="footer-link">Pricing</a>
+            <a href="careers.html" class="footer-link" style="color: var(--amber); font-weight: 600;">Careers</a>
+            <a href="blog.html" class="footer-link">Blog</a>
+            <a href="index.html#contact" class="footer-link">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <nav aria-label="Resources navigation">
+            <a href="privacy.html" class="footer-link">Privacy Policy</a>
+            <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+            <a href="about.html#faq" class="footer-link">FAQ</a>
+            <a href="careers.html" class="footer-link">Careers Portal</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Insights</h4>
+          <nav aria-label="Insights navigation">
+            <a href="blog/why-business-needs-website.html" class="footer-link">Why Every Business Needs a Website</a>
+            <a href="blog/ai-automation-small-business.html" class="footer-link">AI Automation for Small Businesses</a>
+            <a href="blog/website-vs-social-media.html" class="footer-link">Website vs. Social Media</a>
+            <a href="blog.html" class="footer-link" style="color: var(--amber); font-weight: 500;">View All Articles →</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 TASKAS. All rights reserved.</span>
+      <div class="footer-bottom-right">
+        <span class="footer-industry">IT Services &amp; Digital Solutions</span>
+        <span class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Systems Operational
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js?v=2"></script>
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    //  CAREERS MODAL & APPLICATION WORKFLOW LOGIC
+    // ═══════════════════════════════════════════════════════════════
+    const modal = document.getElementById('apply-modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalCloseBtn = document.getElementById('modal-close-btn');
+    const formView = document.getElementById('modal-form-view');
+    const successView = document.getElementById('modal-success-view');
+    const successBackBtn = document.getElementById('success-back-btn');
+    const appForm = document.getElementById('career-application-form');
+    const positionSelect = document.getElementById('app-position');
+    const internBox = document.getElementById('intern-fields-box');
+    const internInputs = internBox.querySelectorAll('input, select');
+    const submitBtn = document.getElementById('submit-app-btn');
+
+    function isInternshipRole(role) {
+      if (!role) return false;
+      const lower = role.toLowerCase();
+      return lower.includes('intern') || lower.includes('student');
+    }
+
+    function toggleInternshipFields() {
+      const selectedRole = positionSelect.value;
+      const isIntern = isInternshipRole(selectedRole);
+      
+      if (isIntern) {
+        internBox.classList.add('active');
+        internInputs.forEach(input => input.setAttribute('required', 'true'));
+      } else {
+        internBox.classList.remove('active');
+        internInputs.forEach(input => input.removeAttribute('required'));
+      }
+    }
+
+    positionSelect.addEventListener('change', toggleInternshipFields);
+
+    // Open Modal Handlers
+    function openModal(role = '', type = 'full-time') {
+      formView.style.display = 'block';
+      successView.style.display = 'none';
+
+      if (role) {
+        // Find matching option or set value
+        let matched = false;
+        for (let i = 0; i < positionSelect.options.length; i++) {
+          if (positionSelect.options[i].value.toLowerCase() === role.toLowerCase() ||
+              positionSelect.options[i].text.toLowerCase().includes(role.toLowerCase())) {
+            positionSelect.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+        if (!matched && role) {
+          // If not in standard list, add it temporarily
+          const opt = new Option(role, role, true, true);
+          positionSelect.add(opt);
+        }
+      }
+
+      toggleInternshipFields();
+
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.open-apply-modal-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const role = btn.getAttribute('data-role') || '';
+        const type = btn.getAttribute('data-type') || 'full-time';
+        openModal(role, type);
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    successBackBtn.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+
+    // Form submission
+    appForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const consent = document.getElementById('app-consent').checked;
+      if (!consent) {
+        alert('Please confirm the consent agreement before submitting.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting Profile... ⏳';
+
+      const candidateData = {
+        applicationId: 'APP-' + Math.floor(100000 + Math.random() * 900000),
+        appliedAt: new Date().toISOString(),
+        status: 'New', // New -> Reviewing -> Shortlisted -> Interview -> Selected -> Rejected
+        position: positionSelect.value,
+        isInternship: isInternshipRole(positionSelect.value),
+        name: document.getElementById('app-name').value.trim(),
+        email: document.getElementById('app-email').value.trim(),
+        phone: document.getElementById('app-phone').value.trim(),
+        city: document.getElementById('app-city').value.trim(),
+        linkedin: document.getElementById('app-linkedin').value.trim(),
+        portfolio: document.getElementById('app-portfolio').value.trim(),
+        experience: document.getElementById('app-experience').value,
+        resume: document.getElementById('app-resume').value.trim(),
+        cover: document.getElementById('app-cover').value.trim(),
+        whyTaskas: document.getElementById('app-why').value.trim(),
+        academic: isInternshipRole(positionSelect.value) ? {
+          college: document.getElementById('app-college').value.trim(),
+          degree: document.getElementById('app-degree').value.trim(),
+          year: document.getElementById('app-year').value,
+          gradYear: document.getElementById('app-grad-year').value,
+          duration: document.getElementById('app-duration').value,
+          startDate: document.getElementById('app-start-date').value.trim()
+        } : null,
+        hrNotes: []
+      };
+
+      try {
+        const res = await fetch('/api/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(candidateData)
+        });
+
+        // Store locally as backup in localStorage
+        const stored = JSON.parse(localStorage.getItem('taskas-my-applications') || '[]');
+        stored.push(candidateData);
+        localStorage.setItem('taskas-my-applications', JSON.stringify(stored));
+
+      } catch (err) {
+        console.warn('Backend endpoint unavailable or offline, recorded locally:', err);
+        const stored = JSON.parse(localStorage.getItem('taskas-my-applications') || '[]');
+        stored.push(candidateData);
+        localStorage.setItem('taskas-my-applications', JSON.stringify(stored));
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Submit Application 🚀';
+      appForm.reset();
+
+      // Show Success view
+      formView.style.display = 'none';
+      successView.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

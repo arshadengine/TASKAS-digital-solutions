@@ -1,0 +1,77 @@
+[
+  {
+    "applicationId": "APP-2026-10492",
+    "appliedAt": "2026-09-09T10:15:00Z",
+    "status": "New",
+    "position": "Graphic Designer",
+    "isInternship": false,
+    "name": "Rahul Sharma",
+    "email": "rahul.sharma@example.com",
+    "phone": "+91 98231 44510",
+    "city": "Pune, Maharashtra",
+    "linkedin": "https://linkedin.com/in/rahul-sharma-design",
+    "portfolio": "https://behance.net/rahulsharma_creative",
+    "experience": "Fresher",
+    "resume": "https://drive.google.com/file/d/sample-resume-rahul/view",
+    "cover": "I am a visual designer passionate about typography and brand systems. I love creating bold digital creatives and social carousels.",
+    "whyTaskas": "TASKAS is building future-ready digital solutions with high aesthetic standards. I want to contribute to brand visuals and scale with the team.",
+    "academic": null,
+    "hrNotes": [
+      {
+        "date": "2026-09-09T11:00:00Z",
+        "author": "HR",
+        "text": "Strong portfolio on Behance. Color grading and typography are clean."
+      }
+    ]
+  },
+  {
+    "applicationId": "APP-2026-10488",
+    "appliedAt": "2026-09-08T14:30:00Z",
+    "status": "Reviewing",
+    "position": "Digital Marketing Executive",
+    "isInternship": false,
+    "name": "Priya Patil",
+    "email": "priya.patil@example.com",
+    "phone": "+91 87654 32190",
+    "city": "Pune, Maharashtra",
+    "linkedin": "https://linkedin.com/in/priyapatil-marketing",
+    "portfolio": "https://priyapatil.me",
+    "experience": "0–1 Years",
+    "resume": "https://drive.google.com/file/d/sample-resume-priya/view",
+    "cover": "Specialized in organic SEO, Instagram brand growth, and conversion funnels for tech services.",
+    "whyTaskas": "The multidisciplinary culture at TASKAS allows marketers to work directly with technical architects and creators.",
+    "academic": null,
+    "hrNotes": [
+      {
+        "date": "2026-09-08T16:00:00Z",
+        "author": "HR",
+        "text": "Reviewing case studies for SEO growth."
+      }
+    ]
+  },
+  {
+    "applicationId": "APP-2026-10461",
+    "appliedAt": "2026-09-07T09:45:00Z",
+    "status": "Interview",
+    "position": "Business Development Executive",
+    "isInternship": false,
+    "name": "Aman Khan",
+    "email": "aman.khan@example.com",
+    "phone": "+91 91234 56780",
+    "city": "Pune, Maharashtra",
+    "linkedin": "https://linkedin.com/in/amankhan-bizdev",
+    "portfolio": "",
+    "experience": "Fresher",
+    "resume": "https://drive.google.com/file/d/sample-resume-aman/view",
+    "cover": "Proactive in outbound lead qualification, research, and client relationship management.",
+    "whyTaskas": "Excited about modern digital products and eager to connect founders with TASKAS's cutting-edge web & AI services.",
+    "academic": null,
+    "hrNotes": [
+      {
+        "date": "2026-09-07T12:00:00Z",
+        "author": "HR",
+        "text": "Initial screening call went well. Scheduled technical interview for Thursday."
+      }
+    ]
+  }
+]

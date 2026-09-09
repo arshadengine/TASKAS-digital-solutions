@@ -147,6 +147,49 @@ def get_email_template(email, phone, dev_type, min_price, max_price, breakdown_t
     """
     return html
 
+def get_career_email_template(name, position, application_id):
+    html = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Application Received — TASKAS</title>
+    </head>
+    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f9fafb; color: #374151; margin: 0; padding: 40px 20px;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 36px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+            <tr>
+                <td style="border-bottom: 1px solid #f3f4f6; padding-bottom: 20px;">
+                    <span style="font-size: 20px; font-weight: 700; color: #111827; letter-spacing: -0.02em;">TASKAS</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 24px;">
+                    <h1 style="font-size: 19px; font-weight: 600; color: #111827; margin-top: 0; margin-bottom: 14px;">Hi {name},</h1>
+                    <p style="font-size: 15px; line-height: 1.6; color: #4b5563; margin-top: 0; margin-bottom: 20px;">
+                        Thank you for your interest in joining <strong>TASKAS</strong>. We've received your application for the <strong>{position}</strong> role.
+                    </p>
+                    <div style="background-color: #f3f4f6; padding: 18px; border-radius: 8px; margin-bottom: 24px; text-align: center;">
+                        <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280;">Application Tracking ID</span>
+                        <div style="font-size: 22px; font-weight: 700; color: #111827; margin-top: 4px;">{application_id}</div>
+                    </div>
+                    <p style="font-size: 14px; line-height: 1.6; color: #4b5563; margin-bottom: 24px;">
+                        Our leadership and recruitment team reviews submissions weekly. If your profile and portfolio align with what we are looking for, we will reach out via Email and WhatsApp to arrange an introductory discussion.
+                    </p>
+                    <p style="font-size: 14px; line-height: 1.6; color: #6b7280; border-top: 1px solid #f3f4f6; padding-top: 20px; margin-bottom: 0;">
+                        Good luck, and thank you for taking the time to explore opportunities at TASKAS.<br/><br/>
+                        Warm regards,<br/>
+                        <strong>TASKAS People &amp; Culture Team</strong><br/>
+                        <a href="mailto:team@taskas.tech" style="color: #e67e22; text-decoration: none;">team@taskas.tech</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    """
+    return html
+
+
 def submit_to_google_sheet(email, phone, dev_type, min_price, max_price, description, inquiry_id=None):
     script_url = "https://script.google.com/macros/s/AKfycbxVAvc7CaEZ0MV-trOIIquoT6sJJAKm-89rqeOfPA_PjJtZrtzCGkBOX5Rh6vUG5A2L/exec"
     
@@ -309,9 +352,154 @@ class ProxyHandler(http.server.SimpleHTTPRequestHandler):
                 self.send_header('Access-Control-Allow-Origin', '*')
                 self.end_headers()
                 self.wfile.write(json.dumps({'error': str(e)}).encode('utf-8'))
+        elif self.path == '/api/apply' or self.path.endswith('/api/apply'):
+            try:
+                content_length = int(self.headers['Content-Length'])
+                post_data = self.rfile.read(content_length)
+                data = json.loads(post_data.decode('utf-8'))
+                
+                app_id = data.get('applicationId') or f"APP-{int(urllib.request.time.time()) if hasattr(urllib.request, 'time') else 10490}"
+                data['applicationId'] = app_id
+                if 'status' not in data:
+                    data['status'] = 'New'
+                
+                apps_file = 'applications.json'
+                apps_list = []
+                if os.path.exists(apps_file):
+                    try:
+                        with open(apps_file, 'r', encoding='utf-8') as af:
+                            apps_list = json.load(af)
+                    except Exception:
+                        apps_list = []
+                
+                apps_list.insert(0, data)
+                with open(apps_file, 'w', encoding='utf-8') as af:
+                    json.dump(apps_list, af, indent=2)
+                
+                # Send confirmation email to applicant
+                name = data.get('name', 'Applicant')
+                email = data.get('email', '')
+                position = data.get('position', 'Open Position')
+                email_sent = False
+                if email:
+                    email_html = get_career_email_template(name, position, app_id)
+                    email_sent = send_smtp_email(email, f"Application Received — {position} at TASKAS", email_html)
+                
+                print("\n" + "="*50)
+                print(f"CANDIDATE APPLICATION RECEIVED")
+                print(f"Candidate: {name} ({email})")
+                print(f"Position : {position}")
+                print(f"App ID   : {app_id}")
+                print(f"Action   : Saved to CRM applications.json")
+                print(f"Email    : {'Sent confirmation email' if email_sent else 'Skipped/No SMTP'}")
+                print("="*50 + "\n")
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({
+                    'status': 'success',
+                    'applicationId': app_id,
+                    'message': 'Application submitted successfully.',
+                    'email_sent': email_sent
+                }).encode('utf-8'))
+            except Exception as e:
+                import traceback
+                traceback.print_exc()
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({'error': str(e)}).encode('utf-8'))
+        elif self.path == '/api/applications/status' or self.path.endswith('/api/applications/status'):
+            try:
+                content_length = int(self.headers['Content-Length'])
+                post_data = self.rfile.read(content_length)
+                data = json.loads(post_data.decode('utf-8'))
+                
+                app_id = data.get('applicationId')
+                new_status = data.get('status')
+                new_note = data.get('note')
+                
+                apps_file = 'applications.json'
+                apps_list = []
+                if os.path.exists(apps_file):
+                    try:
+                        with open(apps_file, 'r', encoding='utf-8') as af:
+                            apps_list = json.load(af)
+                    except Exception:
+                        apps_list = []
+                
+                updated = False
+                for app in apps_list:
+                    if app.get('applicationId') == app_id:
+                        if new_status:
+                            app['status'] = new_status
+                        if new_note:
+                            if 'hrNotes' not in app or not isinstance(app['hrNotes'], list):
+                                app['hrNotes'] = []
+                            app['hrNotes'].append({
+                                'date': data.get('date') or 'Just now',
+                                'author': data.get('author') or 'HR',
+                                'text': new_note
+                            })
+                        updated = True
+                        break
+                
+                if updated:
+                    with open(apps_file, 'w', encoding='utf-8') as af:
+                        json.dump(apps_list, af, indent=2)
+                
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({'status': 'success' if updated else 'not_found'}).encode('utf-8'))
+            except Exception as e:
+                self.send_response(500)
+                self.send_header('Content-Type', 'application/json')
+                self.send_header('Access-Control-Allow-Origin', '*')
+                self.end_headers()
+                self.wfile.write(json.dumps({'error': str(e)}).encode('utf-8'))
         else:
             # Handle other POST requests
             super().do_POST()
+
+    def do_GET(self):
+        parsed_url = urllib.parse.urlparse(self.path)
+        path = parsed_url.path
+        
+        if path == '/api/applications' or path.endswith('/api/applications'):
+            apps_file = 'applications.json'
+            apps_list = []
+            if os.path.exists(apps_file):
+                try:
+                    with open(apps_file, 'r', encoding='utf-8') as f:
+                        apps_list = json.load(f)
+                except Exception:
+                    apps_list = []
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(apps_list).encode('utf-8'))
+        elif path == '/api/leads' or path.endswith('/api/leads'):
+            leads_file = 'leads.json'
+            leads_list = []
+            if os.path.exists(leads_file):
+                try:
+                    with open(leads_file, 'r', encoding='utf-8') as f:
+                        leads_list = json.load(f)
+                except Exception:
+                    leads_list = []
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(json.dumps(leads_list).encode('utf-8'))
+        else:
+            super().do_GET()
 
     def do_OPTIONS(self):
         # Support preflight CORS requests if needed

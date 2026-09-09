@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TASKAS Admin — Control Center &amp; Recruitment CRM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <style>
+    :root {
+      --admin-bg: #07090e;
+      --admin-sidebar: #0b0e17;
+      --admin-card: #0f1422;
+      --admin-border: rgba(255, 255, 255, 0.08);
+      --admin-text: #e2e8f0;
+      --admin-muted: #94a3b8;
+    }
+
+    body {
+      background: var(--admin-bg);
+      color: var(--admin-text);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* SIDEBAR */
+    .admin-sidebar {
+      width: 260px;
+      background: var(--admin-sidebar);
+      border-right: 1px solid var(--admin-border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .admin-brand {
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 1px solid var(--admin-border);
+    }
+
+    .admin-brand-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: 0.05em;
+    }
+
+    .admin-brand-tag {
+      font-size: 0.65rem;
+      background: rgba(230, 126, 34, 0.15);
+      border: 1px solid rgba(230, 126, 34, 0.3);
+      color: #e67e22;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .admin-nav {
+      padding: 1.25rem 0.75rem;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .admin-nav-group-title {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #64748b;
+      font-weight: 700;
+      padding: 0.75rem 0.75rem 0.35rem;
+    }
+
+    .admin-nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      color: var(--admin-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .admin-nav-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
+    .admin-nav-item.active {
+      background: rgba(230, 126, 34, 0.12);
+      color: #e67e22;
+      border-left: 3px solid #e67e22;
+      font-weight: 600;
+    }
+
+    .admin-badge-count {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .admin-nav-item.active .admin-badge-count {
+      background: #e67e22;
+      color: #000;
+    }
+
+    /* MAIN CONTENT */
+    .admin-main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .admin-topbar {
+      height: 64px;
+      border-bottom: 1px solid var(--admin-border);
+      background: var(--admin-sidebar);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .admin-page-heading {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .admin-body-content {
+      padding: 2rem;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    /* STATS CARDS */
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+
+    .stat-card-title {
+      font-size: 0.8rem;
+      color: var(--admin-muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .stat-card-val {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* FILTER BAR */
+    .admin-controls-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .admin-search-input {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: #fff;
+      font-size: 0.88rem;
+      width: 320px;
+      outline: none;
+    }
+
+    .admin-search-input:focus {
+      border-color: #e67e22;
+    }
+
+    .admin-filter-select {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* DATA TABLES */
+    .admin-table-container {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .admin-table th {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1rem 1.25rem;
+      color: #94a3b8;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--admin-border);
+    }
+
+    .admin-table td {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--admin-border);
+      color: #cbd5e1;
+    }
+
+    .admin-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .candidate-name-cell {
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .candidate-sub {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+
+    /* STATUS PILLS */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .status-pill--New {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+    }
+
+    .status-pill--Reviewing {
+      background: rgba(234, 179, 8, 0.15);
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      color: #facc15;
+    }
+
+    .status-pill--Shortlisted {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: #c084fc;
+    }
+
+    .status-pill--Interview {
+      background: rgba(230, 126, 34, 0.15);
+      border: 1px solid rgba(230, 126, 34, 0.3);
+      color: #f39c12;
+    }
+
+    .status-pill--Selected {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+
+    .status-pill--Rejected {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #f87171;
+    }
+
+    /* APPLICANT PROFILE SLIDE-OUT DRAWER */
+    .profile-drawer {
+      position: fixed;
+      top: 0;
+      right: -600px;
+      width: 560px;
+      height: 100vh;
+      background: #0d121f;
+      border-left: 1px solid var(--admin-border);
+      box-shadow: -20px 0 50px rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .profile-drawer.open {
+      right: 0;
+    }
+
+    .profile-drawer-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--admin-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .profile-drawer-body {
+      padding: 2rem;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .drawer-section-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #e67e22;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .drawer-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1.25rem;
+      border-radius: 10px;
+      border: 1px solid var(--admin-border);
+    }
+
+    .drawer-field-label {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 0.2rem;
+    }
+
+    .drawer-field-value {
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .hr-notes-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--admin-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .hr-note-entry {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.6rem 0;
+      font-size: 0.85rem;
+    }
+
+    .hr-note-date {
+      font-size: 0.72rem;
+      color: #64748b;
+    }
+
+    /* Views */
+    .admin-view-panel {
+      display: none;
+    }
+
+    .admin-view-panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar">
+    <div class="admin-brand">
+      <svg width="24" height="24" viewBox="0 0 100 100" fill="none">
+        <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="#4a5f78" />
+        <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="#e67e22" />
+      </svg>
+      <span class="admin-brand-title">TASKAS</span>
+      <span class="admin-brand-tag">ADMIN</span>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-item" data-view="dashboard">
+        <span>📊 Dashboard</span>
+      </div>
+      <div class="admin-nav-item" data-view="leads">
+        <span>🎯 Leads &amp; Inquiries</span>
+        <span class="admin-badge-count" id="leads-count-badge">0</span>
+      </div>
+      <div class="admin-nav-item" data-view="projects">
+        <span>🚀 Projects</span>
+      </div>
+
+      <div class="admin-nav-group-title">Recruitment</div>
+      <div class="admin-nav-item active" data-view="applications">
+        <span>📋 Applications</span>
+        <span class="admin-badge-count" id="apps-count-badge">0</span>
+      </div>
+      <div class="admin-nav-item" data-view="positions">
+        <span>💼 Open Positions</span>
+        <span class="admin-badge-count">3</span>
+      </div>
+      <div class="admin-nav-item" data-view="internships">
+        <span>🎓 Internships</span>
+        <span class="admin-badge-count">8</span>
+      </div>
+
+      <div class="admin-nav-group-title">System</div>
+      <div class="admin-nav-item" data-view="settings">
+        <span>⚙️ Settings</span>
+      </div>
+      <a href="index.html" class="admin-nav-item" style="margin-top: auto;">
+        <span>🌐 View Live Website</span> ➔
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <main class="admin-main">
+    <header class="admin-topbar">
+      <h1 class="admin-page-heading" id="topbar-title">Recruitment — Applications</h1>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <button class="btn btn-outline" id="refresh-data-btn" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">
+          🔄 Refresh
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-body-content">
+      
+      <!-- VIEW: APPLICATIONS -->
+      <section id="view-applications" class="admin-view-panel active">
+        <!-- Stats -->
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-title">Total Applications</div>
+            <div class="stat-card-val" id="stat-total-apps">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-title">New Unreviewed</div>
+            <div class="stat-card-val" id="stat-new-apps" style="color: #60a5fa;">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-title">In Interview</div>
+            <div class="stat-card-val" id="stat-interview-apps" style="color: #f39c12;">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-title">Selected / Offered</div>
+            <div class="stat-card-val" id="stat-selected-apps" style="color: #4ade80;">0</div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="admin-controls-bar">
+          <input type="text" id="app-search" class="admin-search-input" placeholder="Search candidate, role, email, city..." />
+          
+          <div style="display: flex; gap: 0.75rem;">
+            <select id="app-status-filter" class="admin-filter-select">
+              <option value="ALL">All Statuses</option>
+              <option value="New">New</option>
+              <option value="Reviewing">Reviewing</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Interview">Interview</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+
+            <select id="app-type-filter" class="admin-filter-select">
+              <option value="ALL">All Roles &amp; Internships</option>
+              <option value="jobs">Full-Time Only</option>
+              <option value="internships">Internships Only</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th>Position</th>
+                <th>Experience</th>
+                <th>Applied Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applications-table-body">
+              <!-- Dynamically rendered -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW: LEADS -->
+      <section id="view-leads" class="admin-view-panel">
+        <div class="admin-table-container">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Client Contact</th>
+                <th>Project Type</th>
+                <th>Estimated Investment</th>
+                <th>Delivery Time</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody id="leads-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW: OPEN POSITIONS -->
+      <section id="view-positions" class="admin-view-panel">
+        <div class="admin-stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="stat-card">
+            <h3 style="color: #fff; margin-top: 0;">Graphic Designer</h3>
+            <p style="color: var(--admin-muted); font-size: 0.85rem;">Design &amp; Creative • Pune / Hybrid</p>
+            <div class="status-pill status-pill--Selected">Active Hiring</div>
+          </div>
+          <div class="stat-card">
+            <h3 style="color: #fff; margin-top: 0;">Business Development Executive</h3>
+            <p style="color: var(--admin-muted); font-size: 0.85rem;">Growth &amp; Sales • Pune / Hybrid</p>
+            <div class="status-pill status-pill--Selected">Active Hiring</div>
+          </div>
+          <div class="stat-card">
+            <h3 style="color: #fff; margin-top: 0;">Digital Marketing Executive</h3>
+            <p style="color: var(--admin-muted); font-size: 0.85rem;">Marketing &amp; Growth • Pune / Hybrid</p>
+            <div class="status-pill status-pill--Selected">Active Hiring</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW: INTERNSHIPS -->
+      <section id="view-internships" class="admin-view-panel">
+        <div class="admin-stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">💻 Software Dev</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">🌐 Frontend Dev</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">🎨 UI/UX Design</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">🤖 AI/ML</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">⚡ Automation</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">📱 Marketing</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">📊 BizDev</h4><div class="status-pill status-pill--Selected">Open</div></div>
+          <div class="stat-card"><h4 style="color:#fff; margin:0 0 0.4rem;">🖌️ Graphic Design</h4><div class="status-pill status-pill--Selected">Open</div></div>
+        </div>
+      </section>
+
+      <!-- VIEW: DASHBOARD -->
+      <section id="view-dashboard" class="admin-view-panel">
+        <div class="stat-card" style="margin-bottom: 2rem;">
+          <h2 style="color: #fff; margin-top: 0;">Welcome to TASKAS Control Center</h2>
+          <p style="color: var(--admin-muted); max-width: 680px; line-height: 1.6;">
+            Manage inbound website inquiries, CRM leads, and job/internship applications with an automated HR workflow pipeline.
+          </p>
+        </div>
+      </section>
+
+      <!-- VIEW: SETTINGS -->
+      <section id="view-settings" class="admin-view-panel">
+        <div class="stat-card" style="max-width: 600px;">
+          <h3 style="color:#fff; margin-top:0;">Notification Settings</h3>
+          <p style="color: var(--admin-muted); font-size: 0.9rem;">
+            Notifications are dispatched via SMTP credentials stored in <code>.env</code> to <code>team@taskas.tech</code>.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- APPLICANT PROFILE DRAWER -->
+  <aside class="profile-drawer" id="profile-drawer">
+    <div class="profile-drawer-header">
+      <div>
+        <h3 id="drawer-name" style="margin: 0; color: #fff; font-size: 1.25rem;">Candidate Profile</h3>
+        <span id="drawer-app-id" style="font-size: 0.75rem; color: #e67e22;">APP-XXXX</span>
+      </div>
+      <button class="app-modal-close" id="close-drawer-btn" style="position: static; width: 34px; height: 34px; font-size: 1.2rem;">&times;</button>
+    </div>
+
+    <div class="profile-drawer-body">
+      <!-- Status changer -->
+      <div>
+        <div class="drawer-section-title">Recruitment Pipeline Status</div>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <select id="drawer-status-select" class="admin-filter-select" style="width: 100%;">
+            <option value="New">New</option>
+            <option value="Reviewing">Reviewing</option>
+            <option value="Shortlisted">Shortlisted</option>
+            <option value="Interview">Interview</option>
+            <option value="Selected">Selected</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+          <button class="btn btn-primary" id="save-status-btn" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">
+            Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Overview -->
+      <div>
+        <div class="drawer-section-title">Candidate Details</div>
+        <div class="drawer-info-grid">
+          <div>
+            <div class="drawer-field-label">Position</div>
+            <div class="drawer-field-value" id="drawer-role">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Experience</div>
+            <div class="drawer-field-value" id="drawer-exp">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Email</div>
+            <div class="drawer-field-value" id="drawer-email">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Phone</div>
+            <div class="drawer-field-value" id="drawer-phone">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Location</div>
+            <div class="drawer-field-value" id="drawer-city">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Applied Date</div>
+            <div class="drawer-field-value" id="drawer-date">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <div class="drawer-section-title">Links &amp; Portfolio</div>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a id="drawer-resume-link" href="#" target="_blank" class="btn btn-primary" style="font-size: 0.82rem; padding: 0.5rem 1rem;">
+            📄 View Resume / CV ➔
+          </a>
+          <a id="drawer-portfolio-link" href="#" target="_blank" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1rem;">
+            🎨 Portfolio / GitHub ➔
+          </a>
+          <a id="drawer-linkedin-link" href="#" target="_blank" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1rem;">
+            💼 LinkedIn ➔
+          </a>
+        </div>
+      </div>
+
+      <!-- Academic (if internship) -->
+      <div id="drawer-academic-box" style="display: none;">
+        <div class="drawer-section-title">Academic &amp; Internship Scope</div>
+        <div class="drawer-info-grid">
+          <div>
+            <div class="drawer-field-label">College / University</div>
+            <div class="drawer-field-value" id="drawer-college">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Course / Degree</div>
+            <div class="drawer-field-value" id="drawer-degree">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Current Year / Grad</div>
+            <div class="drawer-field-value" id="drawer-year-grad">-</div>
+          </div>
+          <div>
+            <div class="drawer-field-label">Duration &amp; Start</div>
+            <div class="drawer-field-value" id="drawer-duration-start">-</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cover & Why TASKAS -->
+      <div>
+        <div class="drawer-section-title">Why TASKAS &amp; Statement</div>
+        <p id="drawer-why" style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid var(--admin-border); font-size: 0.88rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 0.75rem;"></p>
+        <p id="drawer-cover" style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid var(--admin-border); font-size: 0.85rem; line-height: 1.6; color: #94a3b8;"></p>
+      </div>
+
+      <!-- HR Notes -->
+      <div>
+        <div class="drawer-section-title">HR Notes &amp; Evaluations</div>
+        <div class="hr-notes-box" id="drawer-notes-list">
+          <!-- Notes rendered here -->
+        </div>
+        <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+          <input type="text" id="new-hr-note-input" class="admin-search-input" style="width: 100%;" placeholder="Add internal HR evaluation note..." />
+          <button class="btn btn-outline" id="add-hr-note-btn" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    let allApplications = [];
+    let allLeads = [];
+    let selectedApp = null;
+
+    // View Switching
+    const navItems = document.querySelectorAll('.admin-nav-item[data-view]');
+    const viewPanels = document.querySelectorAll('.admin-view-panel');
+    const topbarTitle = document.getElementById('topbar-title');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const targetView = item.getAttribute('data-view');
+        navItems.forEach(n => n.classList.remove('active'));
+        item.classList.add('active');
+
+        viewPanels.forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById('view-' + targetView);
+        if (panel) panel.classList.add('active');
+
+        topbarTitle.textContent = item.querySelector('span').textContent.replace(/[^\w\s&]/gi, '').trim();
+      });
+    });
+
+    // Fetch Data
+    async function loadData() {
+      try {
+        const resApps = await fetch('/api/applications');
+        if (resApps.ok) {
+          allApplications = await resApps.json();
+        } else {
+          // Fallback to local storage or defaults
+          allApplications = JSON.parse(localStorage.getItem('taskas-my-applications') || '[]');
+        }
+      } catch (err) {
+        allApplications = JSON.parse(localStorage.getItem('taskas-my-applications') || '[]');
+      }
+
+      try {
+        const resLeads = await fetch('/api/leads');
+        if (resLeads.ok) {
+          allLeads = await resLeads.json();
+        }
+      } catch (e) {}
+
+      renderApplications();
+      renderLeads();
+      updateStats();
+    }
+
+    function updateStats() {
+      const total = allApplications.length;
+      const unreviewed = allApplications.filter(a => a.status === 'New').length;
+      const interview = allApplications.filter(a => a.status === 'Interview').length;
+      const selected = allApplications.filter(a => a.status === 'Selected').length;
+
+      document.getElementById('stat-total-apps').textContent = total;
+      document.getElementById('stat-new-apps').textContent = unreviewed;
+      document.getElementById('stat-interview-apps').textContent = interview;
+      document.getElementById('stat-selected-apps').textContent = selected;
+
+      document.getElementById('apps-count-badge').textContent = total;
+      document.getElementById('leads-count-badge').textContent = allLeads.length;
+    }
+
+    function renderApplications() {
+      const tbody = document.getElementById('applications-table-body');
+      tbody.innerHTML = '';
+
+      const query = document.getElementById('app-search').value.toLowerCase();
+      const statusFilter = document.getElementById('app-status-filter').value;
+      const typeFilter = document.getElementById('app-type-filter').value;
+
+      const filtered = allApplications.filter(app => {
+        const matchSearch = (app.name || '').toLowerCase().includes(query) ||
+                            (app.position || '').toLowerCase().includes(query) ||
+                            (app.email || '').toLowerCase().includes(query) ||
+                            (app.city || '').toLowerCase().includes(query);
+
+        const matchStatus = statusFilter === 'ALL' || app.status === statusFilter;
+        const matchType = typeFilter === 'ALL' ||
+                          (typeFilter === 'internships' && (app.isInternship || (app.position || '').toLowerCase().includes('intern'))) ||
+                          (typeFilter === 'jobs' && !app.isInternship && !(app.position || '').toLowerCase().includes('intern'));
+
+        return matchSearch && matchStatus && matchType;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #64748b; padding: 2.5rem;">No candidate applications found matching criteria.</td></tr>';
+        return;
+      }
+
+      filtered.forEach(app => {
+        const tr = document.createElement('tr');
+        tr.style.cursor = 'pointer';
+        
+        const dateStr = app.appliedAt ? new Date(app.appliedAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }) : 'Recent';
+
+        tr.innerHTML = `
+          <td>
+            <div class="candidate-name-cell">
+              <span>${app.name || 'Anonymous'}</span>
+              <span class="candidate-sub">${app.email || ''} • ${app.city || 'India'}</span>
+            </div>
+          </td>
+          <td>
+            <span style="font-weight: 500;">${app.position || 'General'}</span>
+          </td>
+          <td>${app.experience || 'Fresher'}</td>
+          <td>${dateStr}</td>
+          <td>
+            <span class="status-pill status-pill--${app.status || 'New'}">${app.status || 'New'}</span>
+          </td>
+          <td>
+            <button class="btn btn-outline view-candidate-btn" style="padding: 0.35rem 0.75rem; font-size: 0.78rem;">
+              Review Profile ➔
+            </button>
+          </td>
+        `;
+
+        tr.addEventListener('click', () => openCandidateDrawer(app));
+        tbody.appendChild(tr);
+      });
+    }
+
+    function renderLeads() {
+      const tbody = document.getElementById('leads-table-body');
+      tbody.innerHTML = '';
+
+      if (allLeads.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #64748b; padding: 2rem;">No leads recorded yet.</td></tr>';
+        return;
+      }
+
+      allLeads.forEach(lead => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>
+            <div style="font-weight:600; color:#fff;">${lead.email || '-'}</div>
+            <div style="font-size:0.75rem; color:#64748b;">${lead.phone || '-'}</div>
+          </td>
+          <td><span style="color:#e67e22; font-weight:600;">${lead.devType || 'Custom'}</span></td>
+          <td>₹${Number(lead.minPrice || 0).toLocaleString()} - ₹${Number(lead.maxPrice || 0).toLocaleString()}</td>
+          <td>${lead.deliveryTime || 'Flexible'}</td>
+          <td style="max-width: 300px; font-size: 0.8rem; color:#94a3b8;">${(lead.description || '').substring(0, 100)}...</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Candidate Drawer
+    const drawer = document.getElementById('profile-drawer');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const statusSelect = document.getElementById('drawer-status-select');
+    const saveStatusBtn = document.getElementById('save-status-btn');
+    const newNoteInput = document.getElementById('new-hr-note-input');
+    const addNoteBtn = document.getElementById('add-hr-note-btn');
+
+    function openCandidateDrawer(app) {
+      selectedApp = app;
+      document.getElementById('drawer-name').textContent = app.name || 'Candidate Profile';
+      document.getElementById('drawer-app-id').textContent = app.applicationId || 'APP';
+      document.getElementById('drawer-role').textContent = app.position || '-';
+      document.getElementById('drawer-exp').textContent = app.experience || 'Fresher';
+      document.getElementById('drawer-email').textContent = app.email || '-';
+      document.getElementById('drawer-phone').textContent = app.phone || '-';
+      document.getElementById('drawer-city').textContent = app.city || '-';
+      document.getElementById('drawer-date').textContent = app.appliedAt ? new Date(app.appliedAt).toLocaleString() : 'Recent';
+
+      statusSelect.value = app.status || 'New';
+
+      // Links
+      const resumeLink = document.getElementById('drawer-resume-link');
+      if (app.resume) {
+        resumeLink.href = app.resume;
+        resumeLink.style.display = 'inline-flex';
+      } else {
+        resumeLink.style.display = 'none';
+      }
+
+      const portLink = document.getElementById('drawer-portfolio-link');
+      if (app.portfolio) {
+        portLink.href = app.portfolio;
+        portLink.style.display = 'inline-flex';
+      } else {
+        portLink.style.display = 'none';
+      }
+
+      const linkLink = document.getElementById('drawer-linkedin-link');
+      if (app.linkedin) {
+        linkLink.href = app.linkedin;
+        linkLink.style.display = 'inline-flex';
+      } else {
+        linkLink.style.display = 'none';
+      }
+
+      // Academic details
+      const acadBox = document.getElementById('drawer-academic-box');
+      if (app.academic) {
+        acadBox.style.display = 'block';
+        document.getElementById('drawer-college').textContent = app.academic.college || '-';
+        document.getElementById('drawer-degree').textContent = app.academic.degree || '-';
+        document.getElementById('drawer-year-grad').textContent = `${app.academic.year || '-'} (Grad: ${app.academic.gradYear || '-'})`;
+        document.getElementById('drawer-duration-start').textContent = `${app.academic.duration || '-'} (Start: ${app.academic.startDate || '-'})`;
+      } else {
+        acadBox.style.display = 'none';
+      }
+
+      // Texts
+      document.getElementById('drawer-why').textContent = app.whyTaskas ? `Why TASKAS: "${app.whyTaskas}"` : 'No statement provided.';
+      document.getElementById('drawer-cover').textContent = app.cover ? `Cover Letter: "${app.cover}"` : '';
+
+      // Notes
+      renderNotes();
+
+      drawer.classList.add('open');
+    }
+
+    function renderNotes() {
+      const list = document.getElementById('drawer-notes-list');
+      list.innerHTML = '';
+      const notes = (selectedApp && selectedApp.hrNotes) || [];
+      if (notes.length === 0) {
+        list.innerHTML = '<div style="font-size: 0.8rem; color: #64748b;">No notes recorded yet.</div>';
+        return;
+      }
+      notes.forEach(n => {
+        const item = document.createElement('div');
+        item.className = 'hr-note-entry';
+        item.innerHTML = `
+          <div style="font-weight:600; color:#fff;">${n.text}</div>
+          <div class="hr-note-date">${n.author || 'HR'} • ${n.date || 'Recently'}</div>
+        `;
+        list.appendChild(item);
+      });
+    }
+
+    closeDrawerBtn.addEventListener('click', () => drawer.classList.remove('open'));
+
+    // Status update
+    saveStatusBtn.addEventListener('click', async () => {
+      if (!selectedApp) return;
+      const newStatus = statusSelect.value;
+      selectedApp.status = newStatus;
+
+      try {
+        await fetch('/api/applications/status', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            applicationId: selectedApp.applicationId,
+            status: newStatus
+          })
+        });
+      } catch (e) {
+        console.warn('Status updated locally:', e);
+      }
+
+      renderApplications();
+      updateStats();
+      alert(`Candidate status updated to: ${newStatus}`);
+    });
+
+    // Add note
+    addNoteBtn.addEventListener('click', async () => {
+      const text = newNoteInput.value.trim();
+      if (!text || !selectedApp) return;
+
+      if (!selectedApp.hrNotes) selectedApp.hrNotes = [];
+      const newNote = {
+        date: new Date().toLocaleDateString('en-GB') + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        author: 'HR Leader',
+        text: text
+      };
+      selectedApp.hrNotes.push(newNote);
+      newNoteInput.value = '';
+
+      try {
+        await fetch('/api/applications/status', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            applicationId: selectedApp.applicationId,
+            note: text,
+            date: newNote.date,
+            author: newNote.author
+          })
+        });
+      } catch (e) {}
+
+      renderNotes();
+    });
+
+    document.getElementById('app-search').addEventListener('input', renderApplications);
+    document.getElementById('app-status-filter').addEventListener('change', renderApplications);
+    document.getElementById('app-type-filter').addEventListener('change', renderApplications);
+    document.getElementById('refresh-data-btn').addEventListener('click', loadData);
+
+    // Initial load
+    loadData();
+  </script>
+</body>
+</html>
