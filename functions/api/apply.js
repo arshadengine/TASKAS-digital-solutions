@@ -30,6 +30,23 @@ export async function onRequestPost(context) {
     // 1. Store in Cloudflare D1 database if binding exists
     if (env && env.DB) {
       try {
+        await env.DB.prepare(`
+          CREATE TABLE IF NOT EXISTS applications (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            phone TEXT,
+            city TEXT,
+            position TEXT NOT NULL,
+            experience TEXT,
+            is_internship INTEGER DEFAULT 0,
+            status TEXT DEFAULT 'New',
+            data TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+          )
+        `).run();
+
         await env.DB.prepare(
           `INSERT INTO applications (id, name, email, phone, city, position, experience, is_internship, status, data, created_at, updated_at) 
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -62,7 +79,22 @@ export async function onRequestPost(context) {
       }
     }
 
-    // 2. Dispatch automated "Application Received" email to candidate
+    // 2. Also forward to Google Apps Script webhook (Secondary persistence & Admin Notification)
+    const appsScriptUrl = (env && env.GOOGLE_SCRIPT_URL) || "https://script.google.com/macros/s/AKfycbxVAvc7CaEZ0MV-trOIIquoT6sJJAKm-89rqeOfPA_PjJtZrtzCGkBOX5Rh6vUG5A2L/exec";
+    try {
+      await fetch(appsScriptUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          action: 'save_application',
+          ...data
+        })
+      });
+    } catch (appsErr) {
+      console.warn('Google Script forwarding warning:', appsErr);
+    }
+
+    // 3. Dispatch automated "Application Received" email to candidate
     let emailResult = null;
     if (data.email) {
       try {

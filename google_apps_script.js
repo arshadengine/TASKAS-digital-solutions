@@ -33,6 +33,66 @@ function doPost(e) {
       })).setMimeType(ContentService.MimeType.JSON);
     }
 
+    // 2. Candidate Application Logger Action
+    if (data.action === "save_application") {
+      var ss = SpreadsheetApp.getActiveSpreadsheet();
+      var appSheet = ss.getSheetByName("APPLICATIONS");
+      if (!appSheet) {
+        appSheet = ss.insertSheet("APPLICATIONS");
+        appSheet.appendRow([
+          "Application ID", "Name", "Email", "Phone", "City", "Position", 
+          "Experience", "Type", "Status", "Date", "Portfolio Link", "Resume Link", 
+          "Portfolio PDF", "Resume PDF", "Why TASKAS", "Cover Note"
+        ]);
+      }
+      
+      var nowStr = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy HH:mm:ss");
+      appSheet.appendRow([
+        data.applicationId || ("APP-" + new Date().getTime()),
+        data.name || "",
+        data.email || "",
+        data.phone || "",
+        data.city || "",
+        data.position || "",
+        data.experience || "Fresher",
+        data.isInternship ? "Internship" : "Full-Time",
+        data.status || "New",
+        nowStr,
+        data.portfolio || "",
+        data.resume || "",
+        (data.portfolioPdf && data.portfolioPdf.name) || "",
+        (data.resumePdf && data.resumePdf.name) || "",
+        data.whyTaskas || "",
+        data.cover || ""
+      ]);
+
+      // Notify HR / Leadership team
+      try {
+        var emailSub = "🚀 New Candidate Application: " + (data.name || "Applicant") + " — " + (data.position || "General");
+        var emailBody = "A new job/internship application has been submitted on TASKAS!\n\n" +
+                        "Candidate Name: " + (data.name || "-") + "\n" +
+                        "Email: " + (data.email || "-") + "\n" +
+                        "Phone: " + (data.phone || "-") + "\n" +
+                        "City: " + (data.city || "-") + "\n" +
+                        "Role: " + (data.position || "-") + "\n" +
+                        "Experience: " + (data.experience || "Fresher") + "\n" +
+                        "Type: " + (data.isInternship ? "Internship" : "Full-Time") + "\n" +
+                        "Portfolio: " + (data.portfolio || (data.portfolioPdf ? data.portfolioPdf.name : "None")) + "\n" +
+                        "Resume: " + (data.resume || (data.resumePdf ? data.resumePdf.name : "None")) + "\n\n" +
+                        "Access the Admin Dashboard to review & update status:\n" +
+                        "https://taskas.tech/admin";
+        MailApp.sendEmail("team@taskas.tech", emailSub, emailBody);
+      } catch (alertErr) {
+        Logger.log("Admin email alert failed: " + alertErr);
+      }
+
+      return ContentService.createTextOutput(JSON.stringify({
+        status: "success",
+        message: "Candidate application recorded in APPLICATIONS tab and team alerted.",
+        applicationId: data.applicationId
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
     var sheetName = data.sheetName || "INITIATE'S";
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     

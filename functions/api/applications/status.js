@@ -41,6 +41,23 @@ export async function onRequestPost(context) {
 
     if (env && env.DB) {
       try {
+        await env.DB.prepare(`
+          CREATE TABLE IF NOT EXISTS applications (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            email TEXT NOT NULL,
+            phone TEXT,
+            city TEXT,
+            position TEXT NOT NULL,
+            experience TEXT,
+            is_internship INTEGER DEFAULT 0,
+            status TEXT DEFAULT 'New',
+            data TEXT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+          )
+        `).run();
+
         const row = await env.DB.prepare(
           'SELECT * FROM applications WHERE id = ?'
         ).bind(appId).first();
@@ -71,33 +88,45 @@ export async function onRequestPost(context) {
 
           updated = true;
           candidateData = {
-            name: data.name || row.name,
-            email: data.email || row.email,
-            position: data.position || row.position,
+            name: data.name || row.name || body.name,
+            email: data.email || row.email || body.email,
+            position: data.position || row.position || body.position,
             applicationId: appId,
             status: data.status
           };
-
-          // If status changed and email exists, dispatch lifecycle email!
-          if (newStatus && candidateData.email) {
-            try {
-              const mailRes = await dispatchRecruitmentEmail({
-                stage: newStatus,
-                name: candidateData.name || 'Candidate',
-                email: candidateData.email,
-                position: candidateData.position || 'Open Position',
-                applicationId: appId,
-                hrNotes: newNote || '',
-                env: env
-              });
-              emailDispatched = !!(mailRes && mailRes.success);
-            } catch (mailErr) {
-              console.warn('Status change email dispatch warning:', mailErr);
-            }
-          }
         }
       } catch (dbErr) {
         console.warn('D1 update status warning:', dbErr);
+      }
+    }
+
+    // If D1 was not available or row was from seed/localStorage, use payload details
+    if (!candidateData && (body.email || body.name)) {
+      candidateData = {
+        name: body.name || 'Candidate',
+        email: body.email,
+        position: body.position || 'Open Position',
+        applicationId: appId,
+        status: newStatus
+      };
+      updated = true;
+    }
+
+    // If status changed and email exists, dispatch lifecycle email!
+    if (newStatus && candidateData && candidateData.email) {
+      try {
+        const mailRes = await dispatchRecruitmentEmail({
+          stage: newStatus,
+          name: candidateData.name || 'Candidate',
+          email: candidateData.email,
+          position: candidateData.position || 'Open Position',
+          applicationId: appId,
+          hrNotes: newNote || '',
+          env: env
+        });
+        emailDispatched = !!(mailRes && mailRes.success);
+      } catch (mailErr) {
+        console.warn('Status change email dispatch warning:', mailErr);
       }
     }
 
