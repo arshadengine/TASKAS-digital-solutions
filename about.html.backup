@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LP7G4L47X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4LP7G4L47X');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About TASKAS | Digital Solutions Company</title>
+  
+  <meta name="description" content="Learn about TASKAS Technologies. We build high-speed websites, custom software, and advanced AI automation systems for clients across Pune, Mumbai, Maharashtra, and India." />
+  <meta name="keywords" content="TASKAS, about TASKAS, team TASKAS, software engineers, digital agency India, web development company Pune" />
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="TASKAS Technologies">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="https://www.taskas.tech/about" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="About TASKAS | Digital Solutions Company" />
+  <meta property="og:description" content="Learn about TASKAS Technologies. We build high-speed websites, custom software, and advanced AI automation systems." />
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TASKAS Technologies">
+  <meta property="og:url" content="https://www.taskas.tech/about" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About TASKAS | Digital Solutions Company">
+  <meta name="twitter:description" content="Meet our team, our vision, and the values driving our innovation at TASKAS.">
+  <meta name="twitter:image" content="https://www.taskas.tech/assets/og-image.jpg">
+
+  <!-- Favicon & Icons -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <script>
+    (function() {
+      const saved = localStorage.getItem('taskas-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = saved ? (saved === 'dark') : prefersDark;
+      if (!isDark) {
+        document.documentElement.classList.add('light-theme');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="about.css" />
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.taskas.tech/about#webpage",
+        "url": "https://www.taskas.tech/about",
+        "name": "About TASKAS | Digital Solutions Company",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://www.taskas.tech/#website",
+          "url": "https://www.taskas.tech/"
+        },
+        "description": "Meet our team, our vision, and the values driving our innovation at TASKAS Technologies."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.taskas.tech/about#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.taskas.tech/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://www.taskas.tech/about"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Adjustments specific to standalone about.html page styling */
+    body {
+      padding-top: var(--nav-h);
+    }
+    .about {
+      border-top: none;
+      padding-bottom: 6rem;
+    }
+    .about-back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      color: var(--amber);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color var(--dur-fast);
+    }
+    .about-back-btn:hover {
+      color: var(--white);
+    }
+    .about-cta-footer {
+      text-align: center;
+      margin-top: 6rem;
+      padding-top: 5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .about-cta-footer h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .about-cta-footer p {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--mist);
+      margin-bottom: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  NAVIGATION                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <header class="nav-header scrolled" id="nav-header" role="banner">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="/" class="nav-logo" id="nav-logo" aria-label="TASKAS Home">
+        <svg class="logo-icon" viewBox="0 0 100 100" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 8px;">
+          <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#logoBlueGrad)" />
+          <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#logoOrangeGrad)" />
+          <defs>
+            <linearGradient id="logoBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+              <stop offset="0%" stop-color="#4a5f78" />
+              <stop offset="100%" stop-color="#1f2d3d" />
+            </linearGradient>
+            <linearGradient id="logoOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+              <stop offset="0%" stop-color="#e67e22" />
+              <stop offset="100%" stop-color="#f39c12" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="nav-logo-text">TASKAS</span>
+        <span class="nav-logo-dot" aria-hidden="true">.</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#services" class="nav-link">Services</a></li>
+        <li><a href="about" class="nav-link active">About</a></li>
+        <li><a href="/#projects" class="nav-link">Projects</a></li>
+        <li><a href="pricing" class="nav-link">Pricing</a></li>
+        <li><a href="careers" class="nav-link">Careers</a></li>
+        <li><a href="/#stats" class="nav-link">Why Us</a></li>
+        <li><a href="/#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="/#contact" class="nav-link nav-link--cta">Initiate</a></li>
+      </ul>
+      
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <!-- Mobile drawer -->
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <ul role="list">
+        <li><a href="/#services" class="nav-mobile-link">Services</a></li>
+        <li><a href="about" class="nav-mobile-link">About</a></li>
+        <li><a href="/#projects" class="nav-mobile-link">Projects</a></li>
+        <li><a href="pricing" class="nav-mobile-link">Pricing</a></li>
+        <li><a href="careers" class="nav-mobile-link">Careers</a></li>
+        <li><a href="/#stats" class="nav-mobile-link">Why Us</a></li>
+        <li><a href="/#testimonials" class="nav-mobile-link">Reviews</a></li>
+        <li><a href="/#contact" class="nav-mobile-link nav-mobile-link--cta">Initiate Project</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  ABOUT SECTION: STANDALONE CONTENT           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section class="about" id="about-page">
+    <div class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span class="breadcrumbs-separator">&gt;</span>
+      <span class="breadcrumbs-active">About</span>
+    </div>
+    <div class="about-atmosphere" aria-hidden="true">
+      <div class="about-glow"></div>
+    </div>
+    
+    <div class="section-container">
+      <a href="/" class="about-back-btn">
+        ← Back to Home
+      </a>
+
+      <div class="about-header">
+        <span class="section-label">About TASKAS</span>
+        <h2 class="services-title" style="text-align: left; margin-left: 0;">Building Technology Together</h2>
+        <p class="services-subtitle" style="text-align: left; margin-left: 0; max-width: 720px;">
+          At TASKAS, we believe that great digital products are created when talented people with different strengths come together.
+        </p>
+      </div>
+
+      <!-- Story part -->
+      <div class="about-grid">
+        <div class="about-story">
+          <h3>Building the Future, Together.</h3>
+          <p>
+            We're a team of developers, designers, marketers, automation experts, and strategists passionate about helping businesses, startups, and creators transform ideas into impactful digital solutions.
+          </p>
+          <p>
+            From modern websites and UI/UX design to automation systems and custom software, every project we build is driven by innovation, quality, and attention to detail.
+          </p>
+          <div class="about-quote">
+            <blockquote>
+              "Create digital experiences that are modern, scalable, and built for the future."
+            </blockquote>
+          </div>
+        </div>
+        <div class="about-visual" id="about-story-media">
+          <img src="images/about_story.png" alt="TASKAS Collaborative Workspace" />
+        </div>
+      </div>
+
+      <!-- Meaning Behind TASKAS -->
+      <div class="meaning-section">
+        <h3 class="meaning-heading">The Meaning Behind "TASKAS"</h3>
+        <p class="services-subtitle" style="text-align: center; margin-bottom: 3.5rem;">
+          TASKAS is more than just a company name — it's built from the initials of the people who came together to create it.
+        </p>
+        
+        <div class="meaning-grid">
+          <!-- T -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">T</div>
+            <div class="meaning-name">Tejas Chavan</div>
+            <div class="meaning-role">CMO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_tejas.png" class="meaning-profile-img" alt="Tejas Chavan Profile" />
+            </div>
+          </div>
+          
+          <!-- A -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">A</div>
+            <div class="meaning-name">Arshad Shaikh</div>
+            <div class="meaning-role">CEO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_arshad.png" class="meaning-profile-img" alt="Arshad Shaikh Profile" />
+            </div>
+          </div>
+          
+          <!-- S -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">S</div>
+            <div class="meaning-name">Siddik Maniyar</div>
+            <div class="meaning-role">CTO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_siddik.png" class="meaning-profile-img" alt="Siddik Maniyar Profile" />
+            </div>
+          </div>
+          
+          <!-- K -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">K</div>
+            <div class="meaning-name">Krushna Gawande</div>
+            <div class="meaning-role">CSO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_krishna.png" class="meaning-profile-img" alt="Krishna Gawande Profile" />
+            </div>
+          </div>
+          
+          <!-- A -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">A</div>
+            <div class="meaning-name">Arman Pathan</div>
+            <div class="meaning-role">CIO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_arman.png" class="meaning-profile-img" alt="Arman Pathan Profile" />
+            </div>
+          </div>
+          
+          <!-- S -->
+          <div class="meaning-card" tabindex="0">
+            <div class="meaning-letter">S</div>
+            <div class="meaning-name">Snehalish Zode</div>
+            <div class="meaning-role">CFO</div>
+            <div class="meaning-profile-overlay" aria-hidden="true">
+              <img src="images/member_snehalish.png" class="meaning-profile-img" alt="Snehalish Zode Profile" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meet Our Team -->
+      <div class="team-section">
+        <h3 class="team-heading">Meet Our Team</h3>
+        <p class="team-subheading">
+          Cohesive. Professional. Passionate about engineering excellent digital products.
+        </p>
+        
+        <div class="team-grid">
+          <!-- Arshad Shaikh -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_arshad.png" class="team-avatar-img" alt="Arshad Shaikh Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Arshad Shaikh</h4>
+            <div class="team-member-role">Founder &amp; CEO (Chief Executive Officer)</div>
+            <p class="team-member-bio">
+              Drives the overall leadership, business strategy, and major operational decisions across the agency to ensure sustained growth and execution.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+              <a href="#" class="team-social-link">GitHub</a>
+            </div>
+          </div>
+
+          <!-- Tejas Chavan -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_tejas.png" class="team-avatar-img" alt="Tejas Chavan Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Tejas Chavan</h4>
+            <div class="team-member-role">Founder &amp; CMO (Chief Marketing Officer)</div>
+            <p class="team-member-bio">
+              Leads the marketing campaigns, brand identity expansion, strategic customer acquisition pipelines, and social media channels.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Siddik Maniyar -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_siddik.png" class="team-avatar-img" alt="Siddik Maniyar Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Siddik Maniyar</h4>
+            <div class="team-member-role">Founder &amp; CTO (Chief Technology Officer)</div>
+            <p class="team-member-bio">
+              Directs the technology architecture, core product development, engineering framework integration, and technical coding standards.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Krishna Gawande -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_krishna.png" class="team-avatar-img" alt="Krishna Gawande Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Krushna Gawande</h4>
+            <div class="team-member-role">Founder &amp; CSO (Chief Strategy Officer)</div>
+            <p class="team-member-bio">
+              Manages corporate business strategy, strategic industry partnerships, geographic expansion planning, and long-term roadmap initiatives.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Arman Pathan -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_arman.png" class="team-avatar-img" alt="Arman Pathan Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Arman Pathan</h4>
+            <div class="team-member-role">Founder &amp; CIO (Chief Innovation Officer)</div>
+            <p class="team-member-bio">
+              Spearheads advanced AI research and development, custom workflow automation systems, and emerging design tools.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Snehalish Zode -->
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <div class="team-avatar-ring"></div>
+              <div class="team-avatar-container">
+                <img src="images/member_snehalish.png" class="team-avatar-img" alt="Snehalish Zode Portrait" />
+              </div>
+            </div>
+            <h4 class="team-member-name">Snehalish Zode</h4>
+            <div class="team-member-role">Founder &amp; CFO (Chief Financial Officer)</div>
+            <p class="team-member-bio">
+              Coordinates agency finance models, client pricing structures, accounting systems, budget plans, and long-term financial strategy.
+            </p>
+            <div class="team-socials">
+              <a href="#" class="team-social-link">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="values-section">
+        <h3 class="values-heading">Our Core Values</h3>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">🚀</div>
+              <h4 class="value-title">Innovation First</h4>
+            </div>
+            <p class="value-desc">We challenge limits, introduce modern paradigms, and construct future-ready, performant systems.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">🎯</div>
+              <h4 class="value-title">Quality Without Compromise</h4>
+            </div>
+            <p class="value-desc">Every piece of code and layout is optimized to absolute standards. We refuse shortcuts.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">🤝</div>
+              <h4 class="value-title">Teamwork &amp; Trust</h4>
+            </div>
+            <p class="value-desc">Collaborating openly, trusting each other, and aligning shared visions to build great things.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">💡</div>
+              <h4 class="value-title">Creative Problem Solving</h4>
+            </div>
+            <p class="value-desc">Approaching problems from unique analytical perspectives to implement the cleanest workflows.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">🌍</div>
+              <h4 class="value-title">Customer-Centric Focus</h4>
+            </div>
+            <p class="value-desc">Aligning engineering decisions directly to business outcomes and customer success.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-header">
+              <div class="value-icon-circle">📈</div>
+              <h4 class="value-title">Continuous Growth</h4>
+            </div>
+            <p class="value-desc">Constantly learning, refining our expertise, and tracking growth milestones systematically.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- About CTA Footer -->
+      <div class="about-cta-footer">
+        <h3>Have an idea? Let's build it together.</h3>
+        <p>Contact our founders and start engineering your technology solution today.</p>
+        <a href="/#contact" class="btn-primary">Start Your Project</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!--  FOOTER                                     -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-amber-rule" aria-hidden="true"></div>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo-link" aria-label="TASKAS home">
+          <span class="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align: middle; margin-right: 6px;">
+              <path d="M 22 28 C 22 28, 20 48, 34 68 C 42 78, 49 82, 54 82 C 59 82, 63 76, 65 71 C 67 67, 65 62, 60 62 L 52 62 C 43 62, 36 53, 33 43 L 30 28 C 29 25, 23 25, 22 28 Z" fill="url(#footerBlueGrad)" />
+              <path d="M 43.5 68 L 55.5 80 L 88 28 L 70 28 L 43.5 68 Z" fill="url(#footerOrangeGrad)" />
+              <defs>
+                <linearGradient id="footerBlueGrad" x1="0.2" y1="0.2" x2="0.8" y2="0.8">
+                  <stop offset="0%" stop-color="#4a5f78" />
+                  <stop offset="100%" stop-color="#1f2d3d" />
+                </linearGradient>
+                <linearGradient id="footerOrangeGrad" x1="0.5" y1="0.7" x2="0.8" y2="0.3">
+                  <stop offset="0%" stop-color="#e67e22" />
+                  <stop offset="100%" stop-color="#f39c12" />
+                </linearGradient>
+              </defs>
+            </svg>
+            TASKAS<span class="footer-logo-dot">.</span>
+          </span>
+        </a>
+        <p class="footer-tagline">TASKAS Technologies</p>
+        <p style="font-size: 0.72rem; line-height: 1.5; color: var(--mist); margin: 0.75rem 0 1.25rem;">
+          Website development, UI/UX design, and AI business automation services for clients across Pune, Mumbai, Maharashtra, and India.
+        </p>
+        <a href="mailto:team@taskas.tech" class="footer-email-inline" id="footer-email-inline">team@taskas.tech</a>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Services</h4>
+          <nav aria-label="Services navigation">
+            <a href="/#service-web" class="footer-link">Website Development</a>
+            <a href="/#service-ai" class="footer-link">AI Automation</a>
+            <a href="/#service-ui" class="footer-link">UI / UX Design</a>
+            <a href="blog" class="footer-link">SEO Services</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Company</h4>
+          <nav aria-label="Company navigation">
+            <a href="about" class="footer-link">About</a>
+            <a href="pricing" class="footer-link">Pricing</a>
+            <a href="careers" class="footer-link">Careers</a>
+            <a href="blog" class="footer-link">Blog</a>
+            <a href="/#contact" class="footer-link">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <nav aria-label="Resources navigation">
+            <a href="privacy" class="footer-link">Privacy Policy</a>
+            <a href="terms" class="footer-link">Terms &amp; Conditions</a>
+            <a href="about#faq" class="footer-link">FAQ</a>
+            <a href="careers" class="footer-link">Careers Portal</a>
+          </nav>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Insights</h4>
+          <nav aria-label="Insights navigation">
+            <a href="blog/why-business-needs-website" class="footer-link">Why Every Business Needs a Website</a>
+            <a href="blog/ai-automation-small-business" class="footer-link">AI Automation for Small Businesses</a>
+            <a href="blog/website-vs-social-media" class="footer-link">Website vs. Social Media</a>
+            <a href="blog" class="footer-link" style="color: var(--amber); font-weight: 500;">View All Articles →</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 TASKAS Technologies. All rights reserved.</span>
+      <div class="footer-bottom-right">
+        <span class="footer-industry">IT Services &amp; Digital Solutions</span>
+        <span class="footer-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Systems Operational
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Navigation Hamburger controls for subpage
+    (function() {
+      const hamburger = document.getElementById('nav-hamburger');
+      const mobileNav = document.getElementById('nav-mobile');
+      if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+          const open = hamburger.classList.toggle('open');
+          mobileNav.classList.toggle('open', open);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
